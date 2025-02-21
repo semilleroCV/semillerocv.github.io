@@ -14,6 +14,7 @@ import Image from "next/image";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { Container, Engine, InteractivityDetect } from "@tsparticles/engine";
+import { useRouter } from "next/navigation";
 
 const SESSIONS = [
   {
@@ -28,14 +29,16 @@ const SESSIONS = [
     title: "De fotones a pixeles",
     location: "Fundamentos",
     image: "/image/posters/6.png",
-    description: "Generalidades sobre la adquisición y procesamiento digital de imágenes",
+    description:
+      "Generalidades sobre la adquisición y procesamiento digital de imágenes",
   },
   {
     id: 3,
     title: "Deep Learning",
     location: "IA & CV",
     image: "/image/posters/8.png",
-    description: "Despierta el poder de la inteligencia artificial en la visión por computadora",
+    description:
+      "Despierta el poder de la inteligencia artificial en la visión por computadora",
   },
   {
     id: 4,
@@ -49,14 +52,16 @@ const SESSIONS = [
     title: "Estimación pasiva de la profundidad",
     location: "3D Vision",
     image: "/image/posters/12.png",
-    description: "Explora las técnicas de estimación de profundidad sin fuentes externas",
+    description:
+      "Explora las técnicas de estimación de profundidad sin fuentes externas",
   },
   {
     id: 6,
     title: "Estimación activa de la profundidad",
     location: "3D Vision",
     image: "/image/posters/13.png",
-    description: "Extrayendo profundidad con precisión milimétrica a partir de la luz.",
+    description:
+      "Extrayendo profundidad con precisión milimétrica a partir de la luz.",
   },
   {
     id: 7,
@@ -70,7 +75,8 @@ const SESSIONS = [
     title: "Segmentación",
     location: "Procesamiento",
     image: "/image/posters/15.png",
-    description: "Delineando el mundo digital a través de píxeles clasificados meticulosamente",
+    description:
+      "Delineando el mundo digital a través de píxeles clasificados meticulosamente",
   },
   {
     id: 9,
@@ -238,6 +244,8 @@ const SessionCard = ({
     y: 50,
   });
 
+  const router = useRouter();
+
   const variants = {
     active: {
       x: 0,
@@ -285,9 +293,13 @@ const SessionCard = ({
     cardTransform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
   }
 
-  // Only non-active cards trigger navigation on click.
+  // Clicking on the card:
+  // - If it’s not active, we set it as active.
+  // - If it’s active, we redirect to the corresponding session page.
   const handleClick = () => {
-    if (!isActive) {
+    if (isActive) {
+      router.push(`/sesiones/sesion${session.id}`);
+    } else {
       onCardClick(index);
     }
   };
@@ -310,7 +322,7 @@ const SessionCard = ({
       }}
     >
       <motion.div
-        onClick={!isActive ? handleClick : undefined}
+        onClick={handleClick}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseMove={(e) => {
