@@ -118,6 +118,9 @@ export default function Sesion1Page() {
             <Typography
               variant="h1"
               className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
             >
               Pilot: Introducción al Semillero
             </Typography>
@@ -134,6 +137,9 @@ export default function Sesion1Page() {
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
           >
             Introducción y Objetivos
           </Typography>
@@ -149,6 +155,9 @@ export default function Sesion1Page() {
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
           >
             Recursos y Lecturas Previas
           </Typography>
@@ -176,6 +185,9 @@ export default function Sesion1Page() {
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
           >
             Desarrollo de la Sesión
           </Typography>
@@ -196,6 +208,9 @@ export default function Sesion1Page() {
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
           >
             Actividades y Tareas Posteriores
           </Typography>
@@ -215,6 +230,9 @@ export default function Sesion1Page() {
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
           >
             Video Complementario
           </Typography>
