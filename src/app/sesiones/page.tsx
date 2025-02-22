@@ -243,6 +243,8 @@ const SessionCard = ({
     x: 50,
     y: 50,
   });
+  // New state to trigger the "enter" animation effect.
+  const [entering, setEntering] = useState(false);
 
   const router = useRouter();
 
@@ -285,6 +287,7 @@ const SessionCard = ({
     },
   };
 
+  // Compute transform based on hover and mouse position.
   const scale = isHovered ? 1.02 : 1;
   let cardTransform = `scale(${scale})`;
   if (isActive && mousePos) {
@@ -293,13 +296,13 @@ const SessionCard = ({
     cardTransform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(${scale})`;
   }
 
-  // Clicking on the card:
-  // - If it’s not active, we set it as active.
-  // - If it’s active, we redirect to the corresponding session page.
+  // Handle click:
+  // - If not active, simply set it active.
+  // - If active, trigger the "enter" animation effect.
   const handleClick = () => {
-    if (isActive) {
-      router.push(`/sesiones/sesion${session.id}`);
-    } else {
+    if (isActive && !entering) {
+      setEntering(true);
+    } else if (!isActive) {
       onCardClick(index);
     }
   };
@@ -311,7 +314,16 @@ const SessionCard = ({
     <motion.div
       initial="hidden"
       animate={
-        isActive ? "active" : isNext ? "next" : isPrevious ? "previous" : "hidden"
+        // If the card is in the middle of the enter animation, keep its position static.
+        entering
+          ? "active"
+          : isActive
+          ? "active"
+          : isNext
+          ? "next"
+          : isPrevious
+          ? "previous"
+          : "hidden"
       }
       variants={variants}
       transition={{ duration: 0.5 }}
@@ -331,9 +343,21 @@ const SessionCard = ({
           const y = ((e.clientY - rect.top) / rect.height) * 100;
           setReflectionPos({ x, y });
         }}
+        // Here we conditionally animate the inner card.
+        animate={
+          entering
+            ? { scale: 20, opacity: 0, transition: { duration: 0.7, ease: "easeInOut" } }
+            : {}
+        }
+        onAnimationComplete={() => {
+          if (entering) {
+            router.push(`/sesiones/sesion${session.id}`);
+          }
+        }}
         className="relative w-[60vw] max-w-2xl aspect-square bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-teal-500/30 transform preserve-3d stamp-card cursor-pointer group"
         style={{
-          transform: cardTransform,
+          // Use the computed transform only when not animating the enter effect.
+          transform: entering ? undefined : cardTransform,
           transition: "transform 0.2s ease-out",
           pointerEvents: "auto",
         }}

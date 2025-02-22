@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components";
 import { Typography } from "@material-tailwind/react";
+import { motion } from "framer-motion";
 
 // Updated Background Component using the new gradient
 const Background = () => (
@@ -96,6 +97,24 @@ export default function Sesion1Page() {
     return () => observer.disconnect();
   }, [sectionIds]);
 
+  // Motion variant for content sections
+  const contentVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  // Variant for the hero title
+  const titleVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  // Variant for the sidebar
+  const sidebarVariant = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden">
       <Navbar />
@@ -115,25 +134,40 @@ export default function Sesion1Page() {
             />
           </div>
           <div className="md:w-1/2">
-            <Typography
-              variant="h1"
-              className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
-              placeholder=""
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={titleVariant}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              Pilot: Introducci&oacute;n al Semillero
-            </Typography>
-            <p className="mt-4 text-lg md:text-xl">
-              Bienvenido a la primera sesi&oacute;n del semillero. Aqu&iacute; sentamos las
-              bases para explorar el fascinante mundo de la visi&oacute;n por computadora y
-              definir los objetivos que nos acompa&ntilde;an en este emocionante camino.
-            </p>
+              <Typography
+                variant="h1"
+                className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                Pilot: Introducci&oacute;n al Semillero
+              </Typography>
+              <p className="mt-4 text-lg md:text-xl">
+                Bienvenido a la primera sesi&oacute;n del semillero. Aqu&iacute; sentamos las
+                bases para explorar el fascinante mundo de la visi&oacute;n por computadora y
+                definir los objetivos que nos acompa&ntilde;an en este emocionante camino.
+              </p>
+            </motion.div>
           </div>
         </section>
 
         {/* Section 1 – Introducci&oacute;n y Objetivos */}
-        <section id="introduccion" className="mb-12">
+        <motion.section
+          id="introduccion"
+          className="mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={contentVariants}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
@@ -148,10 +182,18 @@ export default function Sesion1Page() {
             Exploraremos la historia, la importancia y las aplicaciones actuales de la visi&oacute;n por
             computadora, sentando las bases para profundizar en conceptos m&aacute;s avanzados.
           </p>
-        </section>
+        </motion.section>
 
         {/* Section 2 – Recursos y Lecturas Previas */}
-        <section id="lecturas" className="mb-12 bg-gray-900 bg-opacity-50 p-6 rounded-lg">
+        <motion.section
+          id="lecturas"
+          className="mb-12 bg-gray-900 bg-opacity-50 p-6 rounded-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={contentVariants}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+        >
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
@@ -178,10 +220,18 @@ export default function Sesion1Page() {
           >
             Descargar PDF
           </a>
-        </section>
+        </motion.section>
 
         {/* Section 3 – Desarrollo de la Sesi&oacute;n */}
-        <section id="contenido" className="mb-12">
+        <motion.section
+          id="contenido"
+          className="mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={contentVariants}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+        >
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
@@ -201,10 +251,18 @@ export default function Sesion1Page() {
             Fomentamos la interacci&oacute;n y el debate, permiti&eacute;ndote experimentar con ejemplos
             reales y sentar las bases para proyectos futuros.
           </p>
-        </section>
+        </motion.section>
 
         {/* Section 4 – Actividades y Tareas Posteriores */}
-        <section id="actividades" className="mb-12 bg-gray-900 bg-opacity-50 p-6 rounded-lg">
+        <motion.section
+          id="actividades"
+          className="mb-12 bg-gray-900 bg-opacity-50 p-6 rounded-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={contentVariants}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+        >
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
@@ -223,10 +281,17 @@ export default function Sesion1Page() {
             Adem&aacute;s, promoveremos el intercambio de ideas en grupo, permitiendo la discusi&oacute;n y
             resoluci&oacute;n de dudas en un ambiente colaborativo.
           </p>
-        </section>
+        </motion.section>
 
         {/* Video Section */}
-        <section className="mb-12">
+        <motion.section
+          className="mb-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={contentVariants}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
+        >
           <Typography
             variant="h2"
             className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
@@ -246,13 +311,19 @@ export default function Sesion1Page() {
               allowFullScreen
             ></iframe>
           </div>
-        </section>
+        </motion.section>
       </main>
 
       {/* Fixed Sidebar on Desktop, hidden on mobile */}
-      <aside className="hidden md:block fixed top-24 right-16">
+      <motion.aside
+        className="hidden md:block fixed top-24 right-16"
+        initial="hidden"
+        animate="visible"
+        variants={sidebarVariant}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+      >
         <SidebarNavigation activeSection={activeSection} />
-      </aside>
+      </motion.aside>
     </div>
   );
 }
