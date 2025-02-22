@@ -42,27 +42,9 @@ const Section: React.FC<{ children: React.ReactNode }> = React.memo(({ children 
 ));
 Section.displayName = "Section";
 
-// Gallery component for displaying a grid of images
-const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => {
-  return (
-    <div className="px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {images.map((src, i) => (
-          <div
-            key={src}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl hover:scale-105 hover:shadow-teal-700 transition-all duration-300"
-          >
-            <Image src={src} alt={`Gallery image ${i + 1}`} fill className="object-cover" />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-});
-Gallery.displayName = "Gallery";
 
 // Alternative Gallery layout for different image sets
-const Gallery2: React.FC<{ images: string[] }> = React.memo(({ images }) => {
+const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => {
   return (
     <div className="px-4">
       <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -86,7 +68,7 @@ const Gallery2: React.FC<{ images: string[] }> = React.memo(({ images }) => {
     </div>
   );
 });
-Gallery2.displayName = "Gallery2";
+Gallery.displayName = "Gallery";
 
 /* -------------------------- Main Component -------------------------- */
 
@@ -223,7 +205,7 @@ export default function Home() {
         </h1>
       </Section>
 
-      <Gallery2 images={images2} />
+      <Gallery images={images2} />
 
       <Section>
         <h1 className="reveal text-lg md:text-xl lg:text-4xl font-bold text-white text-center px-4">
@@ -231,7 +213,7 @@ export default function Home() {
         </h1>
       </Section>
 
-      <Gallery2 images={images3} />
+      <Gallery images={images3} />
 
       <Footer />
     </main>
