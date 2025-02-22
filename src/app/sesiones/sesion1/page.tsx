@@ -29,7 +29,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
             activeSection === "introduccion" ? "text-teal-400 font-bold" : "text-white"
           }`}
         >
-          Introducción y Objetivos
+          Introducci&oacute;n y Objetivos
         </a>
       </li>
       <li>
@@ -49,7 +49,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
             activeSection === "contenido" ? "text-teal-400 font-bold" : "text-white"
           }`}
         >
-          Desarrollo de la Sesión
+          Desarrollo de la Sesi&oacute;n
         </a>
       </li>
       <li>
@@ -94,21 +94,21 @@ export default function Sesion1Page() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sectionIds]);
 
   return (
     <div className="relative min-h-screen text-white overflow-x-hidden">
       <Navbar />
       <Background />
 
-      {/* Main content container with extra top padding and large right margin on md+ */}
-      <main className="relative z-10 pt-20 pb-12 max-w-7xl mx-auto px-4 sm:px-8 lg:px-32 xl:px-40 mr-0 md:mr-48">
+      {/* Main content container with extra top padding and right padding to avoid overlap with sidebar */}
+      <main className="relative z-10 pt-20 pb-12 max-w-7xl mx-auto px-4 sm:px-8 lg:px-32 xl:px-40 md:pr-72">
         {/* Hero Section */}
         <section className="flex flex-col md:flex-row items-center justify-between mb-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
               src="/image/posters/4.png"
-              alt="Pilot - Introducción al Semillero"
+              alt="Pilot - Introducci&oacute;n al Semillero"
               width={400}
               height={400}
               className="rounded-lg shadow-xl w-full max-w-sm h-auto"
@@ -122,17 +122,17 @@ export default function Sesion1Page() {
               onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
-              Pilot: Introducción al Semillero
+              Pilot: Introducci&oacute;n al Semillero
             </Typography>
             <p className="mt-4 text-lg md:text-xl">
-              Bienvenido a la primera sesión del semillero. Aquí sentamos las
-              bases para explorar el fascinante mundo de la visión por computadora y
-              definir los objetivos que nos acompañarán en este emocionante camino.
+              Bienvenido a la primera sesi&oacute;n del semillero. Aqu&iacute; sentamos las
+              bases para explorar el fascinante mundo de la visi&oacute;n por computadora y
+              definir los objetivos que nos acompa&ntilde;an en este emocionante camino.
             </p>
           </div>
         </section>
 
-        {/* Section 1 – Introducción y Objetivos */}
+        {/* Section 1 – Introducci&oacute;n y Objetivos */}
         <section id="introduccion" className="mb-12">
           <Typography
             variant="h2"
@@ -141,12 +141,12 @@ export default function Sesion1Page() {
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
           >
-            Introducción y Objetivos
+            Introducci&oacute;n y Objetivos
           </Typography>
           <p className="text-lg leading-relaxed">
-            En esta sesión introductoria, presentamos el contexto y los objetivos del semillero.
-            Exploraremos la historia, la importancia y las aplicaciones actuales de la visión por
-            computadora, sentando las bases para profundizar en conceptos más avanzados.
+            En esta sesi&oacute;n introductoria, presentamos el contexto y los objetivos del semillero.
+            Exploraremos la historia, la importancia y las aplicaciones actuales de la visi&oacute;n por
+            computadora, sentando las bases para profundizar en conceptos m&aacute;s avanzados.
           </p>
         </section>
 
@@ -162,13 +162,13 @@ export default function Sesion1Page() {
             Recursos y Lecturas Previas
           </Typography>
           <p className="text-lg leading-relaxed mb-4">
-            Antes de asistir a la sesión, te recomendamos revisar los siguientes recursos para
-            familiarizarte con los conceptos básicos:
+            Antes de asistir a la sesi&oacute;n, te recomendamos revisar los siguientes recursos para
+            familiarizarte con los conceptos b&aacute;sicos:
           </p>
           <ul className="list-disc list-inside text-lg mb-4">
-            <li>"Fundamentos de la Visión por Computadora"</li>
-            <li>"Introducción a la Inteligencia Artificial aplicada a CV"</li>
-            <li>"Conceptos Clave en Procesamiento Digital de Imágenes"</li>
+            <li>&quot;Fundamentos de la Visi&oacute;n por Computadora&quot;</li>
+            <li>&quot;Introducci&oacute;n a la Inteligencia Artificial aplicada a CV&quot;</li>
+            <li>&quot;Conceptos Clave en Procesamiento Digital de Im&aacute;genes&quot;</li>
           </ul>
           <a
             href="/pdfs/sesion1.pdf"
@@ -180,7 +180,7 @@ export default function Sesion1Page() {
           </a>
         </section>
 
-        {/* Section 3 – Desarrollo de la Sesión */}
+        {/* Section 3 – Desarrollo de la Sesi&oacute;n */}
         <section id="contenido" className="mb-12">
           <Typography
             variant="h2"
@@ -189,21 +189,21 @@ export default function Sesion1Page() {
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
           >
-            Desarrollo de la Sesión
+            Desarrollo de la Sesi&oacute;n
           </Typography>
           <p className="text-lg leading-relaxed mb-4">
-            Durante esta sesión, combinamos teoría y práctica. A través de presentaciones y
-            demostraciones en vivo, abordamos temas como la adquisición y procesamiento de
-            imágenes, fundamentos de Deep Learning y técnicas de análisis visual. Todo se
-            desarrolla de manera dinámica y participativa.
+            Durante esta sesi&oacute;n, combinamos teor&iacute;a y pr&aacute;ctica. A trav&eacute;s de
+            presentaciones y demostraciones en vivo, abordamos temas como la adquisici&oacute;n y procesamiento de
+            im&aacute;genes, fundamentos de Deep Learning y t&eacute;cnicas de an&aacute;lisis visual. Todo se
+            desarrolla de manera din&aacute;mica y participativa.
           </p>
           <p className="text-lg leading-relaxed">
-            Fomentamos la interacción y el debate, permitiéndote experimentar con ejemplos
+            Fomentamos la interacci&oacute;n y el debate, permiti&eacute;ndote experimentar con ejemplos
             reales y sentar las bases para proyectos futuros.
           </p>
         </section>
 
-        {/* Section 4 – Actividades Posteriores */}
+        {/* Section 4 – Actividades y Tareas Posteriores */}
         <section id="actividades" className="mb-12 bg-gray-900 bg-opacity-50 p-6 rounded-lg">
           <Typography
             variant="h2"
@@ -215,13 +215,13 @@ export default function Sesion1Page() {
             Actividades y Tareas Posteriores
           </Typography>
           <p className="text-lg leading-relaxed mb-4">
-            Al concluir la sesión, se te asignarán actividades prácticas para consolidar los
-            conocimientos adquiridos. Estas tareas te permitirán experimentar de manera
-            autónoma y preparar el terreno para los siguientes módulos.
+            Al concluir la sesi&oacute;n, se te asignar&aacute;n actividades pr&aacute;cticas para consolidar los
+            conocimientos adquiridos. Estas tareas te permitir&aacute;n experimentar de manera
+            aut&oacute;noma y preparar el terreno para los siguientes m&oacute;dulos.
           </p>
           <p className="text-lg leading-relaxed">
-            Además, promoveremos el intercambio de ideas en grupo, permitiendo la discusión y
-            resolución de dudas en un ambiente colaborativo.
+            Adem&aacute;s, promoveremos el intercambio de ideas en grupo, permitiendo la discusi&oacute;n y
+            resoluci&oacute;n de dudas en un ambiente colaborativo.
           </p>
         </section>
 
@@ -249,8 +249,8 @@ export default function Sesion1Page() {
         </section>
       </main>
 
-      {/* Fixed Sidebar on Desktop with extra top/right margin, hidden on mobile */}
-      <aside className="hidden md:block fixed top-24 right-32">
+      {/* Fixed Sidebar on Desktop, hidden on mobile */}
+      <aside className="hidden md:block fixed top-24 right-16">
         <SidebarNavigation activeSection={activeSection} />
       </aside>
     </div>

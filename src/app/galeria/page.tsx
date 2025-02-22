@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
@@ -23,6 +23,7 @@ const ScrollUpIcon: React.FC = () => (
     <MdSwipeVertical className="text-white text-4xl" />
   </div>
 );
+ScrollUpIcon.displayName = "ScrollUpIcon";
 
 // Progress bar indicating scroll progress
 const ProgressBar: React.FC<{ progress: number }> = React.memo(({ progress }) => (
@@ -33,11 +34,13 @@ const ProgressBar: React.FC<{ progress: number }> = React.memo(({ progress }) =>
     />
   </div>
 ));
+ProgressBar.displayName = "ProgressBar";
 
 // Simple Section container
 const Section: React.FC<{ children: React.ReactNode }> = React.memo(({ children }) => (
   <div className="py-12 md:py-20 lg:py-32 text-center">{children}</div>
 ));
+Section.displayName = "Section";
 
 // Gallery component for displaying a grid of images
 const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => {
@@ -56,6 +59,7 @@ const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => {
     </div>
   );
 });
+Gallery.displayName = "Gallery";
 
 // Alternative Gallery layout for different image sets
 const Gallery2: React.FC<{ images: string[] }> = React.memo(({ images }) => {
@@ -82,6 +86,7 @@ const Gallery2: React.FC<{ images: string[] }> = React.memo(({ images }) => {
     </div>
   );
 });
+Gallery2.displayName = "Gallery2";
 
 /* -------------------------- Main Component -------------------------- */
 
