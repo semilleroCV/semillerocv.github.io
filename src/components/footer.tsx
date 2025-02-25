@@ -81,6 +81,24 @@ export function Footer() {
 
           {/* Redes sociales a la derecha */}
           <div className="flex w-fit justify-center gap-4 mt-4 md:mt-0">
+          `<a
+              href="https://discord.gg/MkCpdsHZzJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visita nuestro canal de YouTube"
+            >
+              <IconButton 
+                size="sm" 
+                color="white" 
+                variant="text" 
+                placeholder=""
+                onPointerEnterCapture={() => {}} 
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-brands fa-discord text-xl" />
+              </IconButton>
+            </a>
+            
             {/* YouTube Button */}
             <a
               href="https://www.youtube.com/@Hands-OnCV"
@@ -136,6 +154,8 @@ export function Footer() {
               >
                 <i className="fa-brands fa-github text-xl" />
               </IconButton>
+
+            
             </a>
           </div>
         </div>
