@@ -7,6 +7,10 @@ import {
   Collapse,
   IconButton,
   Typography,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
 } from "@material-tailwind/react";
 import {
   HomeIcon,
@@ -23,7 +27,8 @@ interface NavItemProps {
 }
 
 function NavItem({ children, href }: NavItemProps) {
-  const isExternal = href && (href.startsWith("http://") || href.startsWith("https://"));
+  const isExternal =
+    href && (href.startsWith("http://") || href.startsWith("https://"));
   if (isExternal) {
     return (
       <li>
@@ -111,7 +116,7 @@ export function Navbar() {
           </Typography>
         </div>
 
-        {/* Desktop Menu + Discord Icon */}
+        {/* Desktop Menu + Social Icons */}
         <div className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center gap-8">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
@@ -121,21 +126,92 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
-          {/* Discord Link (Desktop) */}
-          <a
-            href="https://discord.gg/MkCpdsHZzJ"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block hover:opacity-80 transition-opacity duration-300"
-          >
-            <Image
-              src="/logos/discord-logo.svg"
-              alt="Discord Logo"
-              width={36}
-              height={36}
-              className="rounded-md"
-            />
-          </a>
+
+          {/* Social Media Dropdown */}
+          <Menu>
+            <MenuHandler>
+              <IconButton
+                variant="text"
+                color="white"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-solid fa-share-nodes text-xl" />
+              </IconButton>
+            </MenuHandler>
+            <MenuList
+              className="bg-teal-900 border-teal-800"
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+            >
+              <MenuItem
+                className="flex items-center gap-2"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://discord.gg/MkCpdsHZzJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <i className="fa-brands fa-discord text-xl text-white" />
+                  <span className="text-white">Discord</span>
+                </a>
+              </MenuItem>
+              <MenuItem
+                className="flex items-center gap-2 hover:bg-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://www.youtube.com/@Hands-OnCV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-white"
+                >
+                  <i className="fa-brands fa-youtube text-xl text-white" />
+                  <span className="text-white">YouTube</span>
+                </a>
+              </MenuItem>
+              <MenuItem
+                className="flex items-center gap-2 hover:bg-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://www.instagram.com/handsoncv/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <i className="fa-brands fa-instagram text-xl text-white" />
+                  <span className="text-white">Instagram</span>
+                </a>
+              </MenuItem>
+              <MenuItem
+                className="flex items-center gap-2 hover:bg-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://github.com/semilleroCV"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <i className="fa-brands fa-github text-xl text-white" />
+                  <span className="text-white">GitHub</span>
+                </a>
+              </MenuItem>
+            </MenuList>
+          </Menu>
         </div>
 
         {/* Mobile Menu Button */}
@@ -149,7 +225,7 @@ export function Navbar() {
           onPointerLeaveCapture={() => {}}
         >
           <svg
-            className="h-6 w-6"
+            className="h-4 w-4"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
@@ -171,20 +247,74 @@ export function Navbar() {
               </NavItem>
             ))}
           </ul>
-          <div className="mt-6 pt-6 border-t border-teal-800 flex justify-center">
+          <div className="mt-6 pt-6 border-t border-teal-800 flex justify-center gap-4">
             <a
               href="https://discord.gg/MkCpdsHZzJ"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block hover:opacity-80 transition-opacity duration-300"
+              aria-label="Únete a nuestro Discord"
             >
-              <Image
-                src="/logos/discord-logo.svg"
-                alt="Discord Logo"
-                width={36}
-                height={36}
-                className="rounded-md"
-              />
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-brands fa-discord text-xl" />
+              </IconButton>
+            </a>
+            <a
+              href="https://www.youtube.com/@Hands-OnCV"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visita nuestro canal de YouTube"
+            >
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-brands fa-youtube text-xl" />
+              </IconButton>
+            </a>
+            <a
+              href="https://www.instagram.com/handsoncv/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Síguenos en Instagram"
+            >
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-brands fa-instagram text-xl" />
+              </IconButton>
+            </a>
+            <a
+              href="https://github.com/semilleroCV"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visita nuestro repositorio en GitHub"
+            >
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <i className="fa-brands fa-github text-xl" />
+              </IconButton>
             </a>
           </div>
         </div>
