@@ -208,7 +208,7 @@
               familiarizarte con los conceptos b&aacute;sicos:
             </p>
             <ul className="list-disc list-inside text-lg mb-4">
-              <li>&quot;How we're teaching computers to understand pictures&quot;</li>
+              <li>&quot;How we&apos;re teaching computers to understand pictures&quot;</li>
             </ul>
             <a
               href="https://www.ted.com/talks/fei_fei_li_how_we_re_teaching_computers_to_understand_pictures"
