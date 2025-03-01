@@ -208,17 +208,15 @@ export default function Sesion1Page() {
             familiarizarte con los conceptos b&aacute;sicos:
           </p>
           <ul className="list-disc list-inside text-lg mb-4">
-            <li>&quot;Fundamentos de la Visi&oacute;n por Computadora&quot;</li>
-            <li>&quot;Introducci&oacute;n a la Inteligencia Artificial aplicada a CV&quot;</li>
-            <li>&quot;Conceptos Clave en Procesamiento Digital de Im&aacute;genes&quot;</li>
+            <li>&quot;How we're teaching computers to understand pictures&quot;</li>
           </ul>
           <a
-            href="/pdfs/sesion1.pdf"
+            href="https://www.ted.com/talks/fei_fei_li_how_we_re_teaching_computers_to_understand_pictures"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block mt-4 px-6 py-3 bg-teal-700 hover:bg-teal-600 rounded-full text-white font-semibold"
           >
-            Descargar PDF
+            Ver recurso
           </a>
         </motion.section>
 
@@ -304,7 +302,7 @@ export default function Sesion1Page() {
           <div className="relative" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              src="https://www.youtube.com/embed/OnTgbN3uXvw?si=r55sqmuYZj_K7uRm"
               title="Video Complementario"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
