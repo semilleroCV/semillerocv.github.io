@@ -2,11 +2,16 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGoogleScholar }  from "react-icons/fa6";
+import { TfiWorld } from "react-icons/tfi";
+
 
 interface SocialLinks {
   github?: string;
   linkedin?: string;
   twitter?: string;
+  web?: string;
+  scholar?: string;
 }
 
 interface TeamCardProps {
@@ -61,7 +66,7 @@ export function TeamCard({ name, role, image, socialLinks }: TeamCardProps) {
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                <FaGithub className="w-5 h-5" />
+                <FaGithub className="w-6 h-6" />
               </motion.a>
             )}
             {socialLinks.linkedin && (
@@ -72,7 +77,7 @@ export function TeamCard({ name, role, image, socialLinks }: TeamCardProps) {
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                <FaLinkedin className="w-5 h-5" />
+                <FaLinkedin className="w-6 h-6" />
               </motion.a>
             )}
             {socialLinks.twitter && (
@@ -83,7 +88,29 @@ export function TeamCard({ name, role, image, socialLinks }: TeamCardProps) {
                 rel="noopener noreferrer"
                 className="text-gray-300 hover:text-white transition-colors"
               >
-                <FaTwitter className="w-5 h-5" />
+                <FaTwitter className="w-6 h-6" />
+              </motion.a>
+            )}
+            {socialLinks.web && (
+              <motion.a
+                whileHover={{ y: -3 }}
+                href={socialLinks.web}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <TfiWorld className="w-6 h-6" />
+              </motion.a>
+            )}
+            {socialLinks.scholar && (
+              <motion.a
+                whileHover={{ y: -3 }}
+                href={socialLinks.scholar}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-white transition-colors"
+              >
+                <FaGoogleScholar className="w-6 h-6" />
               </motion.a>
             )}
           </div>

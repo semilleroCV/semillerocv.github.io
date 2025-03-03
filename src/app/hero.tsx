@@ -186,7 +186,7 @@ export default function Hero() {
 
           {/* Call to Action Button */}
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <a href="https://tally.so/r/mObO7p" className="w-full">
+            <a href="sesiones" className="w-full">
               <Button
                 placeholder=""
                 onPointerEnterCapture={() => {}}
@@ -211,7 +211,7 @@ export default function Hero() {
                   duration-300
                 "
               >
-                Inscríbete
+                Ver más
               </Button>
             </a>
           </div>

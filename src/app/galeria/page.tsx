@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Lenis from "@studio-freight/lenis";
 import gsap from "gsap";
@@ -9,7 +9,7 @@ import SplitType from "split-type";
 import { Navbar, Footer } from "@/components";
 import { MdSwipeVertical } from "react-icons/md";
 
-// Register GSAP plugins once.
+// Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
 /* ------------------------------- Subcomponents ------------------------------ */
@@ -42,37 +42,33 @@ const Section: React.FC<{ children: React.ReactNode }> = React.memo(({ children 
 ));
 Section.displayName = "Section";
 
-
-// Alternative Gallery layout for different image sets
-const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => {
-  return (
-    <div className="px-4">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {images.map((src, i) => (
-          <div
-            key={src}
-            className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-teal-900 transition-all duration-300"
-          >
-            <Image
-              src={src}
-              alt={`Gallery image ${i + 1}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 33vw"
-              placeholder="blur"
-              blurDataURL="/placeholder.png"
-            />
-          </div>
-        ))}
-      </div>
+// Gallery component for images
+const Gallery: React.FC<{ images: string[] }> = React.memo(({ images }) => (
+  <div className="px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {images.map((src, i) => (
+        <div
+          key={src}
+          className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg hover:scale-105 hover:shadow-teal-900 transition-all duration-300"
+        >
+          <Image
+            src={src}
+            alt={`Gallery image ${i + 1}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            placeholder="blur"
+            blurDataURL="/placeholder.png"
+          />
+        </div>
+      ))}
     </div>
-  );
-});
+  </div>
+));
 Gallery.displayName = "Gallery";
 
 /* -------------------------- Main Component -------------------------- */
 
-// Constant image sets (won't trigger re-renders)
 const images = [
   "/image/galeria/1.webp",
   "/image/galeria/2.webp",
@@ -127,26 +123,22 @@ const images3 = [
 ];
 
 export default function Home() {
+  const containerRef = useRef<HTMLElement>(null);
   const [progress, setProgress] = useState(0);
-  // Show scroll icon when user is at the top (progress === 0)
   const [isAtTop, setIsAtTop] = useState(true);
 
-  // Initialize Lenis and GSAP animations once the component mounts.
   useEffect(() => {
-    // Detect low-end devices to avoid heavy animations
+    // Avoid heavy animations on low-end devices
     if (window.navigator.hardwareConcurrency <= 2) return;
 
-    // Setup Lenis for smooth scrolling
+    // Initialize Lenis for smooth scrolling
     const lenis = new Lenis({ lerp: 0.07 });
     lenis.on("scroll", ({ progress }: { progress: number }) => {
       setProgress(progress);
       ScrollTrigger.update();
-
-      // Show scroll icon when user is at the very top (progress is zero)
       setIsAtTop(progress === 0);
     });
 
-    // Start the animation loop
     let animationFrameId: number;
     const raf = (time: number) => {
       lenis.raf(time);
@@ -154,39 +146,39 @@ export default function Home() {
     };
     animationFrameId = requestAnimationFrame(raf);
 
-    // GSAP: Reveal animations for elements with the "reveal" class
-    const revealTexts = document.querySelectorAll(".reveal");
-    revealTexts.forEach((elem) => {
-      const textElem = elem as HTMLElement;
-      const splitText = new SplitType(textElem);
-      const triggerElement = textElem.parentElement;
-      if (triggerElement) {
+    // Scope GSAP animations using gsap.context tied to the containerRef
+    const ctx = gsap.context(() => {
+      // Select only elements within this component
+      const revealElements = containerRef.current?.querySelectorAll(".reveal") || [];
+      revealElements.forEach((elem) => {
+        const splitText = new SplitType(elem as HTMLElement);
         gsap.from(splitText.words, {
           opacity: 0,
           ease: "none",
           stagger: 0.1,
           duration: 1,
-          inmediateRender: false,
           scrollTrigger: {
-            trigger: triggerElement,
+            trigger: elem as HTMLElement,
             start: "center center",
             end: () => `+=${window.innerHeight * 5}px`,
             scrub: true,
             pin: true,
           },
         });
-      }
-    });
+      });
+    }, containerRef);
 
-    // Cleanup on component unmount
+    // Cleanup on unmount
     return () => {
       cancelAnimationFrame(animationFrameId);
       lenis.destroy();
+      ctx.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
   return (
-    <main className="bg-black">
+    <main ref={containerRef} className="bg-black">
       <ProgressBar progress={progress} />
       <Navbar />
       {isAtTop && <ScrollUpIcon />}

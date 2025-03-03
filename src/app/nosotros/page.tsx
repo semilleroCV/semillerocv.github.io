@@ -126,8 +126,8 @@ export default function NosotrosPage() {
                 role="Director del Semillero"
                 image="/image/people/hoover.png"
                 socialLinks={{
-                  github: "https://github.com/hfarueda",
-                  linkedin: "https://co.linkedin.com/in/hoover-rueda-chac%C3%B3n-18318a313"
+                  web: "https://hfarueda.com/",
+                  scholar: "https://scholar.google.es/citations?hl=es&user=seyRms4AAAAJ&view_op=list_works&sortby=pubdate"
                 }}
               />
               {/* Add more professors as needed */}

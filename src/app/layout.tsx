@@ -40,7 +40,7 @@ export default function RootLayout({
           strategy="afterInteractive"
           async
         />
-        <Script id="tally-config" strategy="afterInteractive">
+       {/*  <Script id="tally-config" strategy="afterInteractive">
           {`
           if (typeof window !== "undefined") {
 
@@ -56,7 +56,7 @@ export default function RootLayout({
             };
           }
           `}
-        </Script>
+        </Script> */}
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
       </head>
       <body className={roboto.className}>

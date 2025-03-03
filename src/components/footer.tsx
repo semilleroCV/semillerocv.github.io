@@ -10,43 +10,30 @@ export function Footer() {
         {/* Sección de llamada a la acción */}
         <div className="flex !w-full py-10 mb-5 md:mb-20 flex-col justify-center !items-center bg-gray-900 max-w-6xl mx-auto rounded-2xl p-5">
           <Typography
-                      placeholder=""
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+            placeholder=""
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
             className="text-2xl md:text-3xl text-center font-bold"
             color="white"
           >
             Únete y potencia tus conocimientos en Visión por Computadora
           </Typography>
           <div className="flex w-full md:w-fit gap-3 mt-2 flex-col md:flex-row">
-            <a 
-              href="https://tally.so/r/mObO7p" 
-              className="w-full"
-            >
-              <Button
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-                className="relative 
-                  w-full
-                  bg-gradient-to-r 
-                  from-teal-700 
-                  to-teal-900 
-                  px-8 
-                  py-3 
-                  text-white 
-                  font-semibold 
-                  rounded-full 
-                  shadow-lg 
-                  hover:shadow-teal-500/50
-                  hover:scale-105
-                  transition-transform 
-                  duration-300"
-                size="lg"
+              <p
+                className="text-center
+              w-full
+              bg-teal-800
+              mt-6
+              px-8
+              py-3
+              text-gray-700
+              font-semibold
+              rounded-full
+              shadow-lg
+              text-white"
               >
-                Inscríbete
-              </Button>
-            </a>
+                La fecha de inscripción ha finalizado
+              </p>
           </div>
         </div>
 
@@ -61,15 +48,20 @@ export function Footer() {
               height={36}
               className="rounded-md"
             />
-            <Typography              placeholder=""
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}} as="a" variant="h6" className="text-gray-50 whitespace-nowrap">
+            <Typography
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+              as="a"
+              variant="h6"
+              className="text-gray-50 whitespace-nowrap"
+            >
               Hands-on Computer Vision
             </Typography>
           </div>
 
           {/* Logo UIS */}
-          <div className="w-screen flex items-center justify-center md:mr-20 sm:mr-0">
+          <div className="w-screen flex items-center justify-center lg:mr-8">
             <Image
               src="/logos/uis.png"
               alt="UIS Logo"
@@ -81,24 +73,24 @@ export function Footer() {
 
           {/* Redes sociales a la derecha */}
           <div className="flex w-fit justify-center gap-4 mt-4 md:mt-0">
-          `<a
+            `
+            <a
               href="https://discord.gg/MkCpdsHZzJ"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visita nuestro canal de YouTube"
+              aria-label="Visita nuestro canal de Discord"
             >
-              <IconButton 
-                size="sm" 
-                color="white" 
-                variant="text" 
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
                 placeholder=""
-                onPointerEnterCapture={() => {}} 
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 <i className="fa-brands fa-discord text-xl" />
               </IconButton>
             </a>
-            
             {/* YouTube Button */}
             <a
               href="https://www.youtube.com/@Hands-OnCV"
@@ -106,18 +98,17 @@ export function Footer() {
               rel="noopener noreferrer"
               aria-label="Visita nuestro canal de YouTube"
             >
-              <IconButton 
-                size="sm" 
-                color="white" 
-                variant="text" 
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
                 placeholder=""
-                onPointerEnterCapture={() => {}} 
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 <i className="fa-brands fa-youtube text-xl" />
               </IconButton>
             </a>
-
             {/* Instagram Button */}
             <a
               href="https://www.instagram.com/handsoncv/"
@@ -125,18 +116,17 @@ export function Footer() {
               rel="noopener noreferrer"
               aria-label="Síguenos en Instagram"
             >
-              <IconButton 
-                size="sm" 
-                color="white" 
-                variant="text" 
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
                 placeholder=""
-                onPointerEnterCapture={() => {}} 
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 <i className="fa-brands fa-instagram text-xl" />
               </IconButton>
             </a>
-
             {/* GitHub Button */}
             <a
               href="https://github.com/semilleroCV"
@@ -144,18 +134,16 @@ export function Footer() {
               rel="noopener noreferrer"
               aria-label="Visita nuestro repositorio en GitHub"
             >
-              <IconButton 
-                size="sm" 
-                color="white" 
-                variant="text" 
+              <IconButton
+                size="sm"
+                color="white"
+                variant="text"
                 placeholder=""
-                onPointerEnterCapture={() => {}} 
+                onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
                 <i className="fa-brands fa-github text-xl" />
               </IconButton>
-
-            
             </a>
           </div>
         </div>
