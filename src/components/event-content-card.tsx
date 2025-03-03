@@ -1,18 +1,26 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
-
+import { useRouter } from "next/navigation";
 
 interface EventContentCardProps {
   title: string;
   des: string;
   img: string;
+  sessionId: number;
 }
 
 export default function EventContentCard({
   title,
   des,
   img,
+  sessionId,
 }: EventContentCardProps) {
+  const router = useRouter();
+
+  const handleExploreSession = () => {
+    router.push(`/sesiones/sesion${sessionId}`);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -33,8 +41,8 @@ export default function EventContentCard({
       <div className="w-full md:w-2/3">
         <h2 className="text-3xl font-bold mb-4">{title}</h2>
         <p className="text-gray-50 mb-6">{des}</p>
-        <a href="#" className="inline-block w-full sm:w-auto">
           <button
+            onClick={handleExploreSession}
             className="w-full sm:w-auto relative 
                 bg-gradient-to-r 
                 from-teal-700 
@@ -52,7 +60,6 @@ export default function EventContentCard({
           >
             Explorar Sesión
           </button>
-        </a>
       </div>
     </motion.div>
   );

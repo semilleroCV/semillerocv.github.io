@@ -14,6 +14,7 @@ const SESSIONS = [
     subject: "Sesión 1: Pilot",
     des: "Introducción al semillero.",
     img: "/image/posters/4.png",
+    sessionId: 1,
   },
   {
     id: "session2",
@@ -21,6 +22,7 @@ const SESSIONS = [
     subject: "Sesión 2: De fotones a pixeles",
     des: "Generalidades sobre la adquisición y procesamiento digital de imágenes",
     img: "/image/posters/6.png",
+    sessionId: 2,
   },
   {
     id: "session3",
@@ -28,6 +30,7 @@ const SESSIONS = [
     subject: "Sesión 3: Deep Learning",
     des: "Despierta el poder de la inteligencia artificial en la visión por computadora",
     img: "/image/posters/8.png",
+    sessionId: 3,
   },
   {
     id: "session4",
@@ -35,6 +38,7 @@ const SESSIONS = [
     subject: "Sesión 4: Imágenes Espectrales",
     des: "Conoce los secretos que hay mas allá de una imagen de color.",
     img: "/image/posters/10.png",
+    sessionId: 4,
   },
   {
     id: "session5",
@@ -42,6 +46,7 @@ const SESSIONS = [
     subject: "Sesión 5: Estimación pasiva de la profundidad",
     des: "Explora las técnicas de estimación de profundidad sin fuentes externas",
     img: "/image/posters/12.png",
+    sessionId: 5,
   },
   {
     id: "session6",
@@ -49,6 +54,7 @@ const SESSIONS = [
     subject: "Sesión 6: Estimación activa de la profundidad",
     des: "Extrayendo profundidad con precisión milimétrica a partir de la luz.",
     img: "/image/posters/13.png",
+    sessionId: 6,
   },
   {
     id: "session7",
@@ -56,6 +62,7 @@ const SESSIONS = [
     subject: "Sesión 7: Asignación de proyectos",
     des: "Rétate a ti mismo 🔥🔥",
     img: "/image/posters/14.png",
+    sessionId: 7
   },
   {
     id: "session8",
@@ -63,6 +70,7 @@ const SESSIONS = [
     subject: "Sesión 8: Segmentación",
     des: "Delineando el mundo digital a través de píxeles clasificados meticulosamente",
     img: "/image/posters/15.png",
+    sessionId: 8,
   },
   {
     id: "session9",
@@ -70,6 +78,7 @@ const SESSIONS = [
     subject: "Sesión 9: Imágenes térmicas",
     des: "El mundo visto a través del calor",
     img: "/image/posters/16.png",
+    sessionId: 9,
   },
   {
     id: "session10",
@@ -77,6 +86,7 @@ const SESSIONS = [
     subject: "Sesión 10: Optimización Convexa",
     des: "Optimizando el mundo con matemáticas",
     img: "/image/posters/17.png",
+    sessionId: 10,
   },
   {
     id: "session11",
@@ -84,6 +94,7 @@ const SESSIONS = [
     subject: "Sesión 11: NLP",
     des: "Aprendiendo a hablar con las máquinas",
     img: "/image/posters/18.png",
+    sessionId: 11,
   },
   {
     id: "session12",
@@ -91,6 +102,7 @@ const SESSIONS = [
     subject: "Sesión 12: Proyectos finales",
     des: "Desafía tus habilidades 🚀 🚀",
     img: "/image/posters/19.png",
+    sessionId: 12,
   },
 ];
 
@@ -193,10 +205,11 @@ export default function EventContent() {
           (session) =>
             session.id === activeSession && (
               <EventContentCard
-                key={session.id}
+                key={session.sessionId}
                 title={session.subject}
                 des={session.des}
                 img={session.img || '/default-image.png'}
+                sessionId={session.sessionId}
               />
             )
         )}
