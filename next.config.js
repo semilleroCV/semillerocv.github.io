@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Image optimization configuration
   images: {
     remotePatterns: [
       {
@@ -12,6 +13,8 @@ const nextConfig = {
     minimumCacheTTL: 60,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
+    // Since we're using static export, we need unoptimized images (Next.js requirement)
+    unoptimized: true,
   },
   // Enable compression
   compress: true,
@@ -21,24 +24,8 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   // Optimize package loading
   swcMinify: true,
-  // Configure Content Security Policy for better security
-  headers: async () => {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          }
-        ]
-      }
-    ];
-  },
+  // Static site export settings
+  output: 'export',
 };
 
 module.exports = nextConfig;
