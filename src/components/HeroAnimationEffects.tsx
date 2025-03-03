@@ -15,7 +15,7 @@ export default function HeroAnimationEffects() {
   return (
     <div className={`transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
       {/* Background gradient */}
-      <div className="absolute inset-0 [background:radial-gradient(125%_125%_at_50%_10%,#003027_40%,#000_100%)]"></div>
+      <div className="absolute inset-0 [background:radial-gradient(125%_125%_at_50%_10%,#003027_5%,#000_80%)]"></div>
 
       {/* Animated blobs - with optimized performance */}
       <div 

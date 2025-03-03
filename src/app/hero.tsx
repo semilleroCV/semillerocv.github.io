@@ -86,6 +86,7 @@ export default function Hero() {
         sm:px-8
         lg:px-16
         py-12
+        
       "
       style={{ perspective: "1000px" }}
     >
