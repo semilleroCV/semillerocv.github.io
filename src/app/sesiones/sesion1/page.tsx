@@ -134,7 +134,7 @@ export default function Sesion1Page() {
         <section className="flex flex-col md:flex-row items-center justify-between mb-12">
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
-              src="/image/posters/4.png"
+              src="/image/posters/4.webp"
               alt="Pilot - Introducci&oacute;n al Semillero"
               width={400}
               height={400}

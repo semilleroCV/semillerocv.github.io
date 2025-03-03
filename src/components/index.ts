@@ -7,3 +7,4 @@ export * from "./about-card";
 export * from "./stats-card";
 export * from "./event-content-card";
 export * from "./fixed-plugin";
+export * from "./HeroAnimationEffects";

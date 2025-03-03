@@ -21,7 +21,7 @@ const SESSIONS = [
     id: 1,
     title: "Pilot",
     location: "Introducción",
-    image: "/image/posters/4.png",
+    image: "/image/posters/4.webp",
     description: "Introducción al semillero",
   },
   {

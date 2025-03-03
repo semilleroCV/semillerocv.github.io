@@ -5,16 +5,21 @@ import { Layout, FixedPlugin } from "@/components";
 import Script from "next/script";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
+// Optimize font loading with display swap and preload
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "900"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 const reemKufiInk = Reem_Kufi_Ink({
   subsets: ["latin"],
   weight: ["400"],
   display: "swap",
+  preload: true,
+  fallback: ['system-ui', 'sans-serif'],
 });
 
 export const metadata: Metadata = {
@@ -35,9 +40,23 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <GoogleAnalytics />
+        {/* Preconnect to critical origins */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        
+        {/* Preload critical assets with appropriate media queries */}
+        <link 
+          rel="preload" 
+          href="/logos/logo.png" 
+          as="image" 
+          fetchPriority="high"
+          type="image/png"
+        />
+        
+        {/* Defer non-critical scripts */}
         <Script
           src="https://tally.so/widgets/embed.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
           async
         />
        {/*  <Script id="tally-config" strategy="afterInteractive">
@@ -63,13 +82,21 @@ export default function RootLayout({
         <Layout>
           {children}
         </Layout>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
+        {/* Load Font Awesome with defer to prevent render blocking */}
+        <Script
+          id="font-awesome"
+          strategy="lazyOnload" 
+        >
+          {`
+            const fontAwesomeLink = document.createElement('link');
+            fontAwesomeLink.rel = 'stylesheet';
+            fontAwesomeLink.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css';
+            fontAwesomeLink.integrity = 'sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==';
+            fontAwesomeLink.crossOrigin = 'anonymous';
+            fontAwesomeLink.referrerPolicy = 'no-referrer';
+            document.head.appendChild(fontAwesomeLink);
+          `}
+        </Script>
       </body>
     </html>
   );

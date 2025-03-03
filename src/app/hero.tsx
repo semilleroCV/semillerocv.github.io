@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Reem_Kufi_Ink } from "next/font/google";
 import Lenis from "lenis";
+import dynamic from 'next/dynamic';
 
 const reemKufiInk = Reem_Kufi_Ink({
   subsets: ["latin"],
@@ -12,32 +13,56 @@ const reemKufiInk = Reem_Kufi_Ink({
   display: "swap",
 });
 
+// The hero animation effects can be loaded dynamically, as they aren't critical for first paint
+const HeroAnimationEffects = dynamic(() => import('../components/HeroAnimationEffects'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 -z-10 h-full w-full bg-black opacity-90"></div>
+});
+
 export default function Hero() {
   const [isClient, setIsClient] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsClient(true);
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      virtualScroll: (data) => true,
-    });
+    
+    // Defer Lenis initialization to after the critical render
+    const timer = setTimeout(() => {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        virtualScroll: (data) => true,
+      });
 
-    function raf(time: number) {
-      lenis.raf(time);
+      function raf(time: number) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
       requestAnimationFrame(raf);
-    }
+    }, 100);
 
-    requestAnimationFrame(raf);
-
-    return () => {};
+    return () => clearTimeout(timer);
   }, []);
 
+  // Simple loading state - show a minimal version until client-side code is ready
   if (!isClient) {
-    return null;
+    return (
+      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 sm:px-8 lg:px-16 py-12">
+        <div className="absolute inset-0 -z-10 h-full w-full bg-[#003027]"></div>
+        <div className="relative z-10 flex flex-col items-center justify-center">
+          <div className="mb-8 flex items-center justify-center">
+            <div className="w-[200px] h-[200px] bg-white/10 rounded-full animate-pulse"></div>
+          </div>
+          <div className="w-3/4 h-12 bg-white/10 rounded-xl animate-pulse mb-4"></div>
+          <div className="w-1/2 h-8 bg-white/10 rounded-xl animate-pulse mb-8"></div>
+          <div className="w-48 h-12 bg-teal-700/50 rounded-full animate-pulse"></div>
+        </div>
+      </section>
+    );
   }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -50,7 +75,7 @@ export default function Hero() {
 
   const rotateX = (mousePos.y / window.innerHeight - 0.5) * 10;
   const rotateY = (mousePos.x / window.innerWidth - 0.5) * 10;
-  //
+  
   return (
     <section
       ref={containerRef}
@@ -70,14 +95,9 @@ export default function Hero() {
       "
       style={{ perspective: "1000px" }}
     >
-      {/* Background Layer */}
+      {/* Background Layer with dynamically loaded animations */}
       <div className="absolute inset-0 -z-10 h-full w-full bg-black">
-        <div className="absolute inset-0 [background:radial-gradient(125%_125%_at_50%_10%,#003027_5%,#000_80%)]"></div>
-
-        {/* Colored blobs */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-teal-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[float_8s_ease-in-out_infinite]"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-green-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[float_8s_ease-in-out_infinite_2s]"></div>
-        <div className="absolute bottom-0 left-20 w-72 h-72 bg-cyan-800 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[float_8s_ease-in-out_infinite_4s]"></div>
+        <HeroAnimationEffects />
       </div>
 
       {/* Glassmorphism Card Container */}
@@ -119,6 +139,9 @@ export default function Hero() {
               width={300}
               height={300}
               className="drop-shadow-xl"
+              priority
+              loading="eager"
+              onLoad={() => setImagesLoaded(true)}
             />
           </div>
 
@@ -236,9 +259,11 @@ export default function Hero() {
                 <Image
                   src="/logos/image1.jpg"
                   alt="Image 1"
-                  width={800}
-                  height={800}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover rounded-lg"
+                  sizes="(max-width: 768px) 0vw, 400px"
+                  loading="lazy"
                 />
               </div>
               <div
@@ -253,33 +278,61 @@ export default function Hero() {
                 "
               >
                 <Image
-                  src="/image/team.jpeg"
-                  alt="Image 2"
-                  width={800}
-                  height={800}
+                  src="/logos/image3.jpg"
+                  alt="Image 3"
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover rounded-lg"
+                  sizes="(max-width: 768px) 0vw, 400px"
+                  loading="lazy"
                 />
               </div>
             </div>
+    
             {/* Column 2 */}
-            <div
-              className="
-                relative 
-                overflow-hidden 
-                rounded-lg 
-                shadow-lg 
-                hover:scale-105 
-                transition-transform 
-                duration-300
-              "
-            >
-              <Image
-                src="/logos/image4.jpg"
-                alt="Image 3"
-                width={800}
-                height={1600}
-                className="w-full h-full object-cover rounded-lg"
-              />
+            <div className="flex flex-col gap-6">
+              <div
+                className="
+                  relative 
+                  overflow-hidden 
+                  rounded-lg 
+                  shadow-lg 
+                  hover:scale-105 
+                  transition-transform 
+                  duration-300
+                "
+              >
+                <Image
+                  src="/logos/image4.jpg"
+                  alt="Image 4"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover rounded-lg"
+                  sizes="(max-width: 768px) 0vw, 400px"
+                  loading="lazy"
+                />
+              </div>
+              <div
+                className="
+                  relative 
+                  overflow-hidden 
+                  rounded-lg 
+                  shadow-lg 
+                  hover:scale-105 
+                  transition-transform 
+                  duration-300
+                "
+              >
+                <Image
+                  src="/logos/author.png"
+                  alt="Author"
+                  width={400}
+                  height={400}
+                  className="w-full h-full object-cover rounded-lg"
+                  sizes="(max-width: 768px) 0vw, 400px"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </div>

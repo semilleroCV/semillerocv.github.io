@@ -13,7 +13,7 @@ const SESSIONS = [
     title: "Sesión 1",
     subject: "Sesión 1: Pilot",
     des: "Introducción al semillero.",
-    img: "/image/posters/4.png",
+    img: "/image/posters/4.webp",
     sessionId: 1,
   },
   {
