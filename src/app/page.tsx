@@ -6,17 +6,17 @@ import Hero from "./hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Dynamically import non-critical sections with loading fallbacks
+// Dynamically import non-critical sections with fade-in effect instead of jarring skeletons
 const SponsoredBy = dynamic(() => import('./sponsored-by'), {
-  loading: () => <div className="w-full h-40 bg-neutral-900 animate-pulse"></div>
+  loading: () => null
 });
 
 const EventContent = dynamic(() => import('./event-content'), {
-  loading: () => <div className="w-full h-60 bg-neutral-900 animate-pulse"></div>
+  loading: () => null
 });
 
 const Faq = dynamic(() => import('./faq'), {
-  loading: () => <div className="w-full h-40 bg-neutral-900 animate-pulse"></div>
+  loading: () => null
 });
 
 export default function Portfolio() {
@@ -24,9 +24,11 @@ export default function Portfolio() {
     <main className={inter.className}>
       <Navbar />
       <Hero />
-      <SponsoredBy />
-      <EventContent />
-      <Faq />
+      <div className="opacity-0 animate-fadeIn">
+        <SponsoredBy />
+        <EventContent />
+        <Faq />
+      </div>
       <Footer />
     </main>
   );

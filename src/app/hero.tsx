@@ -16,21 +16,24 @@ const reemKufiInk = Reem_Kufi_Ink({
 // The hero animation effects can be loaded dynamically, as they aren't critical for first paint
 const HeroAnimationEffects = dynamic(() => import('../components/HeroAnimationEffects'), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 -z-10 h-full w-full bg-black opacity-90"></div>
+  loading: () => <div className="absolute inset-0 -z-10 h-full w-full bg-[#003027]"></div>
 });
 
 export default function Hero() {
-  const [isClient, setIsClient] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [contentReady, setContentReady] = useState(false);
   const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsClient(true);
-    
-    // Defer Lenis initialization to after the critical render
+    // Initial render - set up smooth transition
     const timer = setTimeout(() => {
+      setContentReady(true);
+    }, 10); // Very short timeout just to ensure DOM is ready
+
+    // Set up smooth scrolling after initial render
+    const scrollTimer = setTimeout(() => {
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -45,25 +48,16 @@ export default function Hero() {
       requestAnimationFrame(raf);
     }, 100);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(scrollTimer);
+    };
   }, []);
 
-  // Simple loading state - show a minimal version until client-side code is ready
-  if (!isClient) {
-    return (
-      <section className="relative flex min-h-screen w-full items-center justify-center overflow-hidden px-4 sm:px-8 lg:px-16 py-12">
-        <div className="absolute inset-0 -z-10 h-full w-full bg-[#003027]"></div>
-        <div className="relative z-10 flex flex-col items-center justify-center">
-          <div className="mb-8 flex items-center justify-center">
-            <div className="w-[200px] h-[200px] bg-white/10 rounded-full animate-pulse"></div>
-          </div>
-          <div className="w-3/4 h-12 bg-white/10 rounded-xl animate-pulse mb-4"></div>
-          <div className="w-1/2 h-8 bg-white/10 rounded-xl animate-pulse mb-8"></div>
-          <div className="w-48 h-12 bg-teal-700/50 rounded-full animate-pulse"></div>
-        </div>
-      </section>
-    );
-  }
+  // Handle image load event
+  const handleImageLoad = () => {
+    setImagesLoaded(true);
+  };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
@@ -73,8 +67,8 @@ export default function Hero() {
     setMousePos({ x, y });
   };
 
-  const rotateX = (mousePos.y / window.innerHeight - 0.5) * 10;
-  const rotateY = (mousePos.x / window.innerWidth - 0.5) * 10;
+  const rotateX = (mousePos.y / (typeof window !== 'undefined' ? window.innerHeight : 1) - 0.5) * 10;
+  const rotateY = (mousePos.x / (typeof window !== 'undefined' ? window.innerWidth : 1) - 0.5) * 10;
   
   return (
     <section
@@ -96,37 +90,19 @@ export default function Hero() {
       style={{ perspective: "1000px" }}
     >
       {/* Background Layer with dynamically loaded animations */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-black">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-[#003027]">
         <HeroAnimationEffects />
       </div>
 
-      {/* Glassmorphism Card Container */}
+      {/* Main content with fade-in effect */}
       <div
-        className="
-          relative 
-          z-10 
-          flex 
-          flex-col 
-          md:flex-row 
-          items-center 
-          justify-between 
-          h-full
-          w-full 
-          max-w-8xl
-          rounded-3xl 
-          bg-white/10 
-          backdrop-blur-md 
-          shadow-2xl 
-          border 
-          border-white/20 
-          px-8 
-          sm:px-12 
-          md:px-16 
-          py-12 
-        "
+        className={`relative z-10 flex flex-col md:flex-row items-center justify-between h-full w-full max-w-8xl
+          rounded-3xl bg-white/10 backdrop-blur-md shadow-2xl border border-white/20 
+          px-8 sm:px-12 md:px-16 py-12 transition-opacity duration-700
+          ${contentReady ? 'opacity-100' : 'opacity-0'}`}
         style={{
           transform: `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-          transition: "transform 0.2s ease-out",
+          transition: "transform 0.2s ease-out, opacity 0.7s ease-in",
         }}
       >
         {/* Left Content */}
@@ -141,7 +117,7 @@ export default function Hero() {
               className="drop-shadow-xl"
               priority
               loading="eager"
-              onLoad={() => setImagesLoaded(true)}
+              onLoad={handleImageLoad}
             />
           </div>
 
@@ -259,8 +235,8 @@ export default function Hero() {
                 <Image
                   src="/logos/image1.jpg"
                   alt="Image 1"
-                  width={400}
-                  height={400}
+                  width={800}
+                  height={800}
                   className="w-full h-full object-cover rounded-lg"
                   sizes="(max-width: 768px) 0vw, 400px"
                   loading="lazy"
@@ -278,62 +254,36 @@ export default function Hero() {
                 "
               >
                 <Image
-                  src="/logos/image3.jpg"
+                  src="/image/team.jpeg"
                   alt="Image 3"
-                  width={400}
-                  height={400}
+                  width={800}
+                  height={800}
                   className="w-full h-full object-cover rounded-lg"
-                  sizes="(max-width: 768px) 0vw, 400px"
                   loading="lazy"
                 />
               </div>
             </div>
     
             {/* Column 2 */}
-            <div className="flex flex-col gap-6">
-              <div
-                className="
-                  relative 
-                  overflow-hidden 
-                  rounded-lg 
-                  shadow-lg 
-                  hover:scale-105 
-                  transition-transform 
-                  duration-300
-                "
-              >
-                <Image
-                  src="/logos/image4.jpg"
-                  alt="Image 4"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover rounded-lg"
-                  sizes="(max-width: 768px) 0vw, 400px"
-                  loading="lazy"
-                />
-              </div>
-              <div
-                className="
-                  relative 
-                  overflow-hidden 
-                  rounded-lg 
-                  shadow-lg 
-                  hover:scale-105 
-                  transition-transform 
-                  duration-300
-                "
-              >
-                <Image
-                  src="/logos/author.png"
-                  alt="Author"
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover rounded-lg"
-                  sizes="(max-width: 768px) 0vw, 400px"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            <div
+              className="
+                relative 
+                overflow-hidden 
+                rounded-lg 
+                shadow-lg 
+                hover:scale-105 
+                transition-transform 
+                duration-300
+              "
+            >
+              <Image
+                src="/logos/image4.jpg"
+                alt="Image 3"
+                width={800}
+                height={1600}
+                className="w-full h-full object-cover rounded-lg"
+              />
+                </div>
           </div>
         </div>
       </div>
