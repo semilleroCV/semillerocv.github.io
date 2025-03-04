@@ -1,5 +1,5 @@
 // components
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, DiscordBubble } from "@/components";
 import { Inter } from "next/font/google";
 import dynamic from 'next/dynamic';
 import Hero from "./hero";
@@ -30,6 +30,7 @@ export default function Portfolio() {
         <Faq />
       </div>
       <Footer />
+      <DiscordBubble />
     </main>
   );
 }

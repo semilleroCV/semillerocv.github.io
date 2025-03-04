@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import { Navbar } from "@/components";
+import { Navbar, Footer, DiscordBubble } from "@/components";
 import { Typography } from "@material-tailwind/react";
 import { motion } from "framer-motion";
 
@@ -348,6 +348,8 @@ export default function Sesion1Page() {
       >
         <SidebarNavigation activeSection={activeSection} />
       </motion.aside>
+          
+      <DiscordBubble />
     </div>
   );
 }

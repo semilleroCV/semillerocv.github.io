@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, DiscordBubble } from "@/components";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { TeamCard } from "@/components/team-card";
 import Lenis from "lenis";
@@ -337,6 +337,7 @@ export default function NosotrosPage() {
         </section>
       </main>
       <Footer />
+      <DiscordBubble />
     </>
   );
 }

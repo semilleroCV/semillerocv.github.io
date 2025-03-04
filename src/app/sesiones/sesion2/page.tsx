@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
-import { Navbar } from "@/components";
+import { Navbar, Footer, DiscordBubble } from "@/components";
 import { Typography } from "@material-tailwind/react";
 import { motion } from "framer-motion";
 
@@ -75,7 +75,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
   </nav>
 );
 
-export default function Sesion1Page() {
+export default function Sesion2Page() {
   // List of section IDs for observation
   const sectionIds = useMemo(() => ["introduccion", "lecturas", "contenido", "actividades"], []);
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
@@ -371,6 +371,7 @@ export default function Sesion1Page() {
       >
         <SidebarNavigation activeSection={activeSection} />
       </motion.aside>
+      <DiscordBubble />
     </div>
   );
 }
