@@ -211,31 +211,78 @@ export default function Sesion1Page() {
           <p className="text-lg leading-relaxed mb-4">
             Antes de asistir a la sesión, te recomendamos revisar los siguientes recursos para familiarizarte con los conceptos básicos:
           </p>
-          <ul className="list-disc list-inside text-lg mb-4">
-            <li>TED-EdLight waves, visible and invisible​</li>
-            <li>Basics Explained, H3VtuxDigital vs Analog. What&apos;s the Difference? Why Does it Matter...​</li>
-            <li>TED-EdCamera or eye: Which sees better? - Michael Mauser​</li>
+            <ul className="list-disc list-inside text-lg mb-4">
             <li>
               <a
-                href="https://www.cambridgeincolour.com/tutorials/camera-sensors.htm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-400 hover:underline"
+              href="https://www.youtube.com/watch?v=O0PawPSdk28"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
               >
-                https://www.cambridgeincolour.com/tutorials/camera-sensors.htm → Espectacular. Mucha publicidad
+              TED-EdLight waves, visible and invisible
               </a>
             </li>
             <li>
               <a
-                href="https://www.cse.iitb.ac.in/~ajitvr/CS663_Fall2016/demosaicing.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-teal-400 hover:underline"
+              href="https://www.youtube.com/watch?v=ZWdT-6Ld71Q"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
               >
-                https://www.cse.iitb.ac.in/~ajitvr/CS663_Fall2016/demosaicing.pdf
+              Basics Explained, H3VtuxDigital vs Analog. What&apos;s the Difference? Why Does it Matter...
               </a>
             </li>
-          </ul>
+            <li>
+              <a
+              href="https://www.youtube.com/watch?v=OGqAM2Mykng"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
+              >
+              TED-EdCamera or eye: Which sees better? - Michael Mauser
+              </a>
+            </li>
+            <li>
+              <a
+              href="https://www.cambridgeincolour.com/tutorials/camera-sensors.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
+              >
+              Understanding digital camera sensors
+              </a>
+            </li>
+            <li>
+              <a
+              href="https://www.cse.iitb.ac.in/~ajitvr/CS663_Fall2016/demosaicing.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
+              >
+              Color image Demosaicing
+              </a>
+            </li>
+            <li>
+              <a
+              href="https://www.youtube.com/watch?v=hsXo4gD7iWI&ab_channel=GeorgeEastmanMuseum"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
+              >
+              How to Turn a Room into a Camera Obscura
+              </a>
+            </li>
+            <li>
+              <a
+              href="https://www.essentialvermeer.com/camera_obscura/co_one.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-teal-400 hover:underline"
+              >
+              Vermeer and the Camera Obscura: Part I
+              </a>
+            </li>
+            </ul>
         </motion.section>
 
         {/* Section 3 – Desarrollo de la Sesión */}
@@ -309,7 +356,6 @@ export default function Sesion1Page() {
           </p>
           <ul className="list-disc list-inside text-lg">
             <li>Experimentación con una cámara oscura casera.</li>
-            <li>Análisis del efecto del triángulo de exposición en la captura de imágenes.</li>
             <li>Implementación básica de corrección de gamma y ecualización de histograma.</li>
           </ul>
         </motion.section>
