@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components";
 import { Typography } from "@material-tailwind/react";
@@ -77,7 +77,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
 
 export default function Sesion1Page() {
   // List of section IDs for observation
-  const sectionIds = ["introduccion", "lecturas", "contenido", "actividades"];
+  const sectionIds = useMemo(() => ["introduccion", "lecturas", "contenido", "actividades"], []);
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
 
   useEffect(() => {

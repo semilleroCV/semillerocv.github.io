@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Image from "next/image";
 import { Navbar } from "@/components";
 import { Typography } from "@material-tailwind/react";
@@ -77,7 +77,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
 
 export default function Sesion1Page() {
   // List of section IDs for observation
-  const sectionIds = ["introduccion", "lecturas", "contenido", "actividades"];
+  const sectionIds = useMemo(() => ["introduccion", "lecturas", "contenido", "actividades"], []);
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
 
   useEffect(() => {
@@ -213,7 +213,7 @@ export default function Sesion1Page() {
           </p>
           <ul className="list-disc list-inside text-lg mb-4">
             <li>TED-EdLight waves, visible and invisible​</li>
-            <li>Basics Explained, H3VtuxDigital vs Analog. What's the Difference? Why Does it Matter…​</li>
+            <li>Basics Explained, H3VtuxDigital vs Analog. What&apos;s the Difference? Why Does it Matter...​</li>
             <li>TED-EdCamera or eye: Which sees better? - Michael Mauser​</li>
             <li>
               <a
