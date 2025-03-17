@@ -245,6 +245,8 @@ const SessionCard = ({
   });
   // New state to trigger the "enter" animation effect.
   const [entering, setEntering] = useState(false);
+  // Reference to track if touch is a tap or swipe
+  const isTouchMoveRef = useRef(false);
 
   const router = useRouter();
 
@@ -299,11 +301,39 @@ const SessionCard = ({
   // Handle click:
   // - If not active, simply set it active.
   // - If active, trigger the "enter" animation effect.
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent | React.TouchEvent) => {
+    // Only process click on non-touch devices or when it's a genuine tap (not part of swipe)
+    if ('ontouchstart' in window && e.type === 'click') {
+      return; // Skip click events on touch devices as we'll handle taps via touch events
+    }
+
     if (isActive && !entering) {
       setEntering(true);
     } else if (!isActive) {
       onCardClick(index);
+    }
+  };
+
+  // Touch event handlers for the card
+  const handleTouchStart = () => {
+    isTouchMoveRef.current = false;
+  };
+
+  const handleTouchMove = () => {
+    isTouchMoveRef.current = true;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    // Prevent default to avoid any conflicts with click events
+    e.preventDefault();
+
+    // Only handle as tap if there was no significant movement
+    if (!isTouchMoveRef.current) {
+      if (isActive && !entering) {
+        setEntering(true);
+      } else if (!isActive) {
+        onCardClick(index);
+      }
     }
   };
 
@@ -335,6 +365,9 @@ const SessionCard = ({
     >
       <motion.div
         onClick={handleClick}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onMouseMove={(e) => {
@@ -421,6 +454,9 @@ export default function SesionesPage() {
   // Refs to track touch events for swipe navigation
   const touchStartXRef = useRef(0);
   const touchEndXRef = useRef(0);
+  const touchStartYRef = useRef(0);
+  const touchEndYRef = useRef(0);
+  const isSwiping = useRef(false);
 
   useEffect(() => {
     setIsClient(true);
@@ -470,18 +506,39 @@ export default function SesionesPage() {
     [isScrolling]
   );
 
-  // Touch event handlers for swipe navigation
+  // Improved touch event handlers for swipe navigation
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     touchStartXRef.current = e.touches[0].clientX;
+    touchStartYRef.current = e.touches[0].clientY;
+    isSwiping.current = false;
   };
 
   const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!touchStartXRef.current) return;
+
     touchEndXRef.current = e.touches[0].clientX;
+    touchEndYRef.current = e.touches[0].clientY;
+
+    // Calculate horizontal and vertical distance
+    const xDiff = touchStartXRef.current - touchEndXRef.current;
+    const yDiff = touchStartYRef.current - touchEndYRef.current;
+
+    // If horizontal swipe is greater than vertical movement and exceeds threshold,
+    // mark as swiping to prevent card click
+    if (Math.abs(xDiff) > Math.abs(yDiff) && Math.abs(xDiff) > 30) {
+      isSwiping.current = true;
+
+      // Prevent default to avoid page scrolling during intentional swipe
+      e.preventDefault();
+    }
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
+    if (!isSwiping.current) return;
+
     const diff = touchStartXRef.current - touchEndXRef.current;
     const threshold = 50;
+
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
         // Swiped left => next slide
@@ -493,6 +550,11 @@ export default function SesionesPage() {
         setCurrentIndex((prev) => Math.max(prev - 1, 0));
       }
     }
+
+    // Reset values
+    touchStartXRef.current = 0;
+    touchEndXRef.current = 0;
+    isSwiping.current = false;
   };
 
   useEffect(() => {
@@ -625,6 +687,13 @@ export default function SesionesPage() {
 
         .stamp-card:hover::after {
           opacity: 1;
+        }
+
+        /* Disable pull-to-refresh and overscroll effects on mobile */
+        html,
+        body {
+          overscroll-behavior: none;
+          touch-action: none;
         }
       `}</style>
     </>
