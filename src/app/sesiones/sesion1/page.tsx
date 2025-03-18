@@ -71,6 +71,18 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
           Actividades Posteriores
         </a>
       </li>
+      <li>
+        <a
+          href="#sesion"
+          className={`transition-colors hover:text-teal-400 ${
+            activeSection === "introduccion"
+              ? "text-teal-400 font-bold"
+              : "text-white"
+          }`}
+        >
+          Contenido de la Sesión
+        </a>
+      </li>
     </ul>
   </nav>
 );
@@ -78,7 +90,7 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
 export default function Sesion1Page() {
   // List of section IDs for observation
   const sectionIds = useMemo(
-    () => ["introduccion", "lecturas", "contenido", "actividades"],
+    () => ["introduccion", "lecturas", "contenido", "actividades", "sesion"],
     []
   );
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
@@ -321,6 +333,7 @@ export default function Sesion1Page() {
         </Typography>
 
         <motion.section
+          id="sesion"
           className="mb-12"
           initial="hidden"
           whileInView="visible"
@@ -373,6 +386,7 @@ export default function Sesion1Page() {
             <div className="absolute inset-0 pointer-events-none" />
           </div>
         </motion.section>
+        
       </main>
 
       {/* Fixed Sidebar on Desktop, hidden on mobile */}

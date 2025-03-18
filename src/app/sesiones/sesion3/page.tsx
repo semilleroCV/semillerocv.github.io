@@ -71,13 +71,25 @@ const SidebarNavigation = ({ activeSection }: SidebarNavigationProps) => (
           Actividades y Tareas Posteriores
         </a>
       </li>
+      <li>
+        <a
+          href="#sesion"
+          className={`transition-colors hover:text-teal-400 ${
+            activeSection === "introduccion"
+              ? "text-teal-400 font-bold"
+              : "text-white"
+          }`}
+        >
+          Contenido de la Sesión
+        </a>
+      </li>
     </ul>
   </nav>
 );
 
 export default function Sesion3Page() {
   // List of section IDs for observation
-  const sectionIds = useMemo(() => ["introduccion", "lecturas", "contenido", "actividades"], []);
+  const sectionIds = useMemo(() => ["introduccion", "lecturas", "contenido", "actividades", "sesion"], []);
   const [activeSection, setActiveSection] = useState(sectionIds[0]);
 
   useEffect(() => {
