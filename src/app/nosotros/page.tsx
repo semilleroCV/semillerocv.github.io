@@ -156,6 +156,7 @@ export default function NosotrosPage() {
                 role="Msc(s) Computer Science"
                 image="/image/people/fabian.jpeg"
                 socialLinks={{
+                  web: "https://www.factral.co/",
                   github: "https://github.com/Factral/",
                   linkedin: "https://www.linkedin.com/in/fabianprzz/",
                 }}
