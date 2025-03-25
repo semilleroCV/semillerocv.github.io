@@ -229,7 +229,7 @@ export default function Sesion1Page() {
           >
             Recursos y Lecturas Previas
           </Typography>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mb-4 text-justify">
             Antes de asistir a la sesi&oacute;n, te recomendamos revisar los
             siguientes recursos para familiarizarte con los conceptos
             b&aacute;sicos:
