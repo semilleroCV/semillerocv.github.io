@@ -173,7 +173,7 @@ export default function Sesion2Page() {
                 De Fotones a Píxeles
               </Typography>
 
-              <p className="mt-2 text-lg md:text-xl">
+              <p className="mt-2 text-lg md:text-xl text-justify">
                 En esta sesión, exploramos la transición desde la luz hasta la
                 imagen digital. Nos sumergiremos en los principios fundamentales
                 de la formación de imágenes, desde los conceptos ópticos hasta
@@ -203,7 +203,7 @@ export default function Sesion2Page() {
           >
             Introducción y Objetivos
           </Typography>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-justify">
             El objetivo de esta sesión es comprender los principios físicos y
             matemáticos que permiten la captura de imágenes. Exploraremos la
             relación entre la óptica, los sensores y los algoritmos que
@@ -232,7 +232,7 @@ export default function Sesion2Page() {
           >
             Recursos y Lecturas Previas
           </Typography>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mb-4 text-justify">
             Antes de asistir a la sesión, te recomendamos revisar los siguientes
             recursos para familiarizarte con los conceptos básicos:
           </p>

@@ -172,7 +172,7 @@ export default function Sesion1Page() {
               >
                 Pilot: Introducci&oacute;n al Semillero
               </Typography>
-              <p className="mt-4 text-lg md:text-xl">
+              <p className="mt-4 text-lg md:text-xl text-justify">
                 Bienvenido a la primera sesi&oacute;n del semillero. Aqu&iacute;
                 sentamos las bases para explorar el fascinante mundo de la
                 visi&oacute;n por computadora y definir los objetivos que nos
@@ -201,7 +201,7 @@ export default function Sesion1Page() {
           >
             Introducci&oacute;n y Objetivos
           </Typography>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-justify">
             En esta sesi&oacute;n introductoria, presentamos el contexto y los
             objetivos del semillero. Exploraremos la historia, la importancia y
             las aplicaciones actuales de la visi&oacute;n por computadora,
@@ -275,7 +275,7 @@ export default function Sesion1Page() {
           >
             Desarrollo de la Sesi&oacute;n
           </Typography>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mb-4 text-justify">
             Durante esta sesi&oacute;n, combinamos teor&iacute;a y
             pr&aacute;ctica. A trav&eacute;s de presentaciones y demostraciones
             en vivo, abordamos temas como la adquisici&oacute;n y procesamiento
@@ -309,7 +309,7 @@ export default function Sesion1Page() {
           >
             Actividades y Tareas Posteriores
           </Typography>
-          <p className="text-lg leading-relaxed mb-4">
+          <p className="text-lg leading-relaxed mb-4 text-justify">
             Al concluir la sesi&oacute;n, se te asignar&aacute;n actividades
             pr&aacute;cticas para consolidar los conocimientos adquiridos. Estas
             tareas te permitir&aacute;n experimentar de manera aut&oacute;noma y

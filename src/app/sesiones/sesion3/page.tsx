@@ -169,7 +169,7 @@ export default function Sesion3Page() {
               >Deep Learning
               </Typography>
             <br></br>
-              <p className="mt-2 mr-8 text-lg md:text-xl">
+              <p className="mt-2 mr-8 text-lg md:text-xl text-justify">
                 En esta sesión nos sumergimos en el fascinante mundo del Deep Learning, explorando desde sus principios fundamentales hasta sus aplicaciones más recientes. Desde la construcción de un perceptrón multicapa desde cero hasta el análisis de redes neuronales convolucionales, descubriremos cómo estas tecnologías están transformando nuestra interacción con el mundo visual.
               </p>
             </motion.div>
@@ -195,7 +195,7 @@ export default function Sesion3Page() {
           >
             Introducción y Objetivos
           </Typography>
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed text-justify">
             El objetivo principal de esta sesión es comprender los fundamentos del Deep Learning y su aplicación en visión por computadora. Exploraremos la evolución histórica de esta tecnología, comprenderemos sus principios matemáticos básicos, y analizaremos hacia dónde se dirige el campo. Al finalizar, serás capaz de entender cómo se construye un perceptrón multicapa desde cero, reconocer el funcionamiento de las redes neuronales convolucionales, y visualizar las tendencias actuales y futuras del Deep Learning.
           </p>
         </motion.section>
