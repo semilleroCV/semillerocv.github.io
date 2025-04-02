@@ -9,8 +9,10 @@ import dynamic from 'next/dynamic';
 
 const reemKufiInk = Reem_Kufi_Ink({
   subsets: ["latin"],
-  weight: ["400"],
+  weight: "400",
   display: "swap",
+  preload: false,
+  fallback: ['system-ui', 'sans-serif']
 });
 
 // The hero animation effects can be loaded dynamically, as they aren't critical for first paint
