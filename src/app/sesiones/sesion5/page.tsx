@@ -292,7 +292,6 @@ export default function Sesion3Page() {
           </ul>
         </motion.section>
 
-        {/* Section 3 – Desarrollo de la Sesión */}
         <motion.section
           id="contenido"
           className="mb-12"
