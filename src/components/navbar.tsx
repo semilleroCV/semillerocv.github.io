@@ -116,7 +116,7 @@ export function Navbar() {
           </Typography>
         </div>
 
-        {/* Desktop Menu + Social Icons */}
+        {/* Desktop Menu Social Icons */}
         <div className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center gap-8">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
@@ -147,7 +147,7 @@ export function Navbar() {
               onPointerLeaveCapture={() => {}}
             >
               <MenuItem
-                className="flex items-center gap-2"
+                className="p-0 hover:bg-transparent"
                 placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
@@ -156,14 +156,19 @@ export function Navbar() {
                   href="https://discord.gg/MkCpdsHZzJ"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="
+     flex items-center gap-2 w-full p-2 rounded 
+     hover:bg-teal-400 hover:text-black 
+     transition-all duration-300 
+     transform hover:scale-105
+   "
                 >
                   <i className="fa-brands fa-discord text-xl text-white" />
                   <span className="text-white">Discord</span>
                 </a>
               </MenuItem>
               <MenuItem
-                className="flex items-center gap-2 hover:bg-transparent"
+                className="p-0 hover:bg-transparent"
                 placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
@@ -172,14 +177,20 @@ export function Navbar() {
                   href="https://www.youtube.com/@Hands-OnCV"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-white"
+                  className="
+     flex items-center gap-2 w-full p-2 rounded 
+     text-white 
+     hover:bg-teal-400 hover:text-black 
+     transition-all duration-300 
+     transform hover:scale-105
+   "
                 >
                   <i className="fa-brands fa-youtube text-xl text-white" />
                   <span className="text-white">YouTube</span>
                 </a>
               </MenuItem>
               <MenuItem
-                className="flex items-center gap-2 hover:bg-transparent"
+                className="p-0 hover:bg-transparent"
                 placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
@@ -188,14 +199,20 @@ export function Navbar() {
                   href="https://www.instagram.com/handsoncv/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="
+     flex items-center gap-2 w-full p-2 rounded 
+     text-white 
+     hover:bg-teal-400 hover:text-black 
+     transition-all duration-300 
+     transform hover:scale-105
+   "
                 >
                   <i className="fa-brands fa-instagram text-xl text-white" />
                   <span className="text-white">Instagram</span>
                 </a>
               </MenuItem>
               <MenuItem
-                className="flex items-center gap-2 hover:bg-transparent"
+                className="p-0 hover:bg-transparent"
                 placeholder=""
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
@@ -204,10 +221,37 @@ export function Navbar() {
                   href="https://github.com/semilleroCV"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="
+     flex items-center gap-2 w-full p-2 rounded 
+     text-white 
+     hover:bg-teal-400 hover:text-black 
+     transition-all duration-300 
+     transform hover:scale-105
+   "
                 >
                   <i className="fa-brands fa-github text-xl text-white" />
                   <span className="text-white">GitHub</span>
+                </a>
+              </MenuItem>
+              <MenuItem
+                className="p-0 hover:bg-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://semillerocv.alwaysdata.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 w-full p-2 rounded 
+      text-white 
+      hover:bg-teal-400 hover:text-black 
+      transition-all duration-300 
+      transform hover:scale-105
+    "
+                >
+                  <i className="fa-brands fa-wikipedia-w text-xl text-white" />
+                  <span className="text-white">HoCV Wiki</span>
                 </a>
               </MenuItem>
             </MenuList>
@@ -306,7 +350,7 @@ export function Navbar() {
               aria-label="Visita nuestro repositorio en GitHub"
             >
               <IconButton
-                size="sm"
+                size="md"
                 color="white"
                 variant="text"
                 placeholder=""
