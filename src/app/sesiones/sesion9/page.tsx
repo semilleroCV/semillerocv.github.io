@@ -261,7 +261,7 @@ export default function Sesion3Page() {
                 rel="noopener noreferrer"
                 className="text-teal-400 hover:underline"
               >
-                “Introduction to Thermal Infrared” – UP42 Blog
+                “Introduction to Thermal Infrared” Blog
               </a>
             </li>
           </ul>
