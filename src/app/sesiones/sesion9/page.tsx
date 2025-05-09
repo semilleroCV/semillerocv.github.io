@@ -251,7 +251,7 @@ export default function Sesion3Page() {
                 rel="noopener noreferrer"
                 className="text-teal-400 hover:underline"
               >
-                Spectrophotometry and Beer's Law
+                Spectrophotometry and Beer&apos;s Law
               </a>
             </li>
             <li>
