@@ -138,7 +138,7 @@ export default function Sesion3Page() {
           <div className="md:w-1/2 mb-8 md:mb-0">
             <Image
               src="/image/posters/16.png"
-              alt="Segmentacion"
+              alt="Termicas"
               width={400}
               height={400}
               className="rounded-lg shadow-xl w-full max-w-sm h-auto"
@@ -158,7 +158,7 @@ export default function Sesion3Page() {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                Segmentación de Imágenes
+                Imágenes térmicas
               </Typography>
               <br></br>
               <p className="mt-2 mr-8 text-lg md:text-xl text-justify">
