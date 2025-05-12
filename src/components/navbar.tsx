@@ -236,13 +236,6 @@ export function Navbar() {
                   <span className="text-white">GitHub</span>
                 </a>
               </MenuItem>
-              <MenuItem
-                className="p-0 hover:bg-transparent"
-                placeholder=""
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-              </MenuItem>
             </MenuList>
           </Menu>
         </div>
