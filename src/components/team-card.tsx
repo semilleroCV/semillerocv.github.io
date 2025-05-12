@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { FaGoogleScholar }  from "react-icons/fa6";
+import { FaGoogleScholar } from "react-icons/fa6";
 import { TfiWorld } from "react-icons/tfi";
 
 interface SocialLinks {
@@ -20,84 +20,109 @@ interface TeamCardProps {
   socialLinks: SocialLinks;
 }
 
-export function TeamCard({ name, role, image, socialLinks }: TeamCardProps) {
+const cardVariants = {
+  rest: { scale: 1, boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)" },
+  hover: {
+    scale: 1.05,
+    boxShadow: "0 15px 25px rgba(6, 240, 213, 0.7)",
+    transition: { duration: 0.3, ease: "easeOut" },
+  },
+};
+
+const overlayVariants = {
+  rest: { y: "100%" },
+  hover: {
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
+const contentVariants = {
+  rest: { y: 20, opacity: 0 },
+  hover: {
+    y: 0,
+    opacity: 1,
+    transition: { delay: 0.2, duration: 0.4, ease: "easeOut" },
+  },
+};
+
+const iconsVariants = {
+  rest: { opacity: 0, y: 10 },
+  hover: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.3, staggerChildren: 0.1 },
+  },
+};
+
+export function TeamCard({
+  name,
+  role,
+  image,
+  socialLinks,
+}: TeamCardProps) {
   return (
     <motion.div
-      whileHover={{ scale: 1.03 }}
-      className="relative w-80 h-96 rounded-xl overflow-hidden shadow-lg"
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+      variants={cardVariants}
+      className="relative w-80 h-96 rounded-xl overflow-hidden bg-black"
     >
-      {/* Foto de fondo */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${image})` }}
+      {/* Background image */}
+      <Image
+        src={image}
+        alt={name}
+        fill
+        className="object-cover"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+      {/* Animated gradient overlay */}
+      <motion.div
+        variants={overlayVariants}
+        className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent"
+      />
 
-      {/* Contenido (nombre y rol) */}
-      <div className="relative z-10 flex flex-col justify-end h-full p-4 text-white">
-        <h3 className="text-lg font-bold">{name}</h3>
-        <p className="text-sm mb-4">{role}</p>
+      {/* Sliding content */}
+      <motion.div
+        variants={contentVariants}
+        className="absolute bottom-16 left-4 right-4 text-white"
+      >
+        <h3 className="text-xl font-bold">{name}</h3>
+        <p className="text-sm mt-1">{role}</p>
+      </motion.div>
 
-        {/* Íconos en la parte inferior */}
-        <div className="flex space-x-4">
-          {socialLinks.github && (
-            <motion.a
-              whileHover={{ y: -2 }}
-              href={socialLinks.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white"
-            >
-              <FaGithub className="w-7 h-7" />
-            </motion.a>
-          )}
-          {socialLinks.linkedin && (
-            <motion.a
-              whileHover={{ y: -2 }}
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white"
-            >
-              <FaLinkedin className="w-7 h-7" />
-            </motion.a>
-          )}
-          {socialLinks.twitter && (
-            <motion.a
-              whileHover={{ y: -2 }}
-              href={socialLinks.twitter}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white"
-            >
-              <FaTwitter className="w-7 h-7" />
-            </motion.a>
-          )}
-          {socialLinks.web && (
-            <motion.a
-              whileHover={{ y: -2 }}
-              href={socialLinks.web}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white"
-            >
-              <TfiWorld className="w-7 h-7" />
-            </motion.a>
-          )}
-          {socialLinks.scholar && (
-            <motion.a
-              whileHover={{ y: -2 }}
-              href={socialLinks.scholar}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white"
-            >
-              <FaGoogleScholar className="w-7 h-7" />
-            </motion.a>
-          )}
-        </div>
-      </div>
+      {/* Fade-in icons */}
+      <motion.div
+        variants={iconsVariants}
+        className="absolute bottom-4 left-4 flex space-x-3 text-white"
+      >
+        {socialLinks.github && (
+          <motion.a variants={iconsVariants} href={socialLinks.github} target="_blank" rel="noopener noreferrer">
+            <FaGithub className="w-6 h-6" />
+          </motion.a>
+        )}
+        {socialLinks.linkedin && (
+          <motion.a variants={iconsVariants} href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+            <FaLinkedin className="w-6 h-6" />
+          </motion.a>
+        )}
+        {socialLinks.twitter && (
+          <motion.a variants={iconsVariants} href={socialLinks.twitter} target="_blank" rel="noopener noreferrer">
+            <FaTwitter className="w-6 h-6" />
+          </motion.a>
+        )}
+        {socialLinks.web && (
+          <motion.a variants={iconsVariants} href={socialLinks.web} target="_blank" rel="noopener noreferrer">
+            <TfiWorld className="w-6 h-6" />
+          </motion.a>
+        )}
+        {socialLinks.scholar && (
+          <motion.a variants={iconsVariants} href={socialLinks.scholar} target="_blank" rel="noopener noreferrer">
+            <FaGoogleScholar className="w-6 h-6" />
+          </motion.a>
+        )}
+      </motion.div>
     </motion.div>
   );
 }
