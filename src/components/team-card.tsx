@@ -65,6 +65,7 @@ export function TeamCard({
     <motion.div
       initial="rest"
       whileHover="hover"
+      whileTap="hover"
       animate="rest"
       variants={cardVariants}
       className="relative w-80 h-96 rounded-xl overflow-hidden bg-black"
