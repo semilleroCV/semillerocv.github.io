@@ -318,8 +318,8 @@ export default function Sesion3Page() {
           </p>
         </motion.section>
 
-        {/* Video Section */}
         <motion.section
+          id="sesion"
           className="mb-12"
           initial="hidden"
           whileInView="visible"
@@ -327,24 +327,48 @@ export default function Sesion3Page() {
           variants={contentVariants}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.8 }}
         >
+          <div className="mb-16">
+            <Typography
+              variant="h3"
+              className="text-2xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+              placeholder=""
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+            >
+              Presentación en PDF
+            </Typography>
+            <div className="w-full h-[600px] bg-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-teal-500/20 transition-shadow">
+              <iframe
+                src="/slides/2025SemilleroCV_Session8_ImageSegmentation.pdf"
+                width="100%"
+                height="100%"
+                className="border-none"
+                title="Presentación PDF"
+              />
+            </div>
+            <p className="mt-4 text-sm text-gray-400 text-center">
+              Puedes navegar por la presentación usando los controles del visor.
+            </p>
+          </div>
+
           <Typography
-            variant="h2"
-            className="text-3xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
+            variant="h3"
+            className="text-2xl font-bold mb-6 bg-gradient-to-r from-teal-300 to-teal-400 bg-clip-text text-transparent"
             placeholder=""
             onPointerEnterCapture={() => {}}
             onPointerLeaveCapture={() => {}}
           >
-            Video Complementario
+            Video de la sesión
           </Typography>
-          <div className="relative" style={{ paddingTop: "56.25%" }}>
+
+          <div className="relative aspect-video bg-gray-900 rounded-2xl overflow-hidden shadow-2xl hover:shadow-teal-500/20 transition-shadow">
             <iframe
-              className="absolute top-0 left-0 w-full h-full rounded-lg shadow-xl"
-              src="https://www.youtube.com/embed/onWJQY5oFhs?si=4JRATXtViVwbiOKv"
-              title="How Neural Nets estimate depth from 2D images? Monocular Depth Estimation Explained!"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/2G0bOJWBQ_c?si=IX8ObUkRqhcmZYTZ"
+              title="YouTube video player"
             ></iframe>
+            <div className="absolute inset-0 pointer-events-none" />
           </div>
         </motion.section>
       </main>
