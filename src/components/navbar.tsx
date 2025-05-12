@@ -18,6 +18,7 @@ import {
   CameraIcon,
   UserIcon,
   ArrowRightOnRectangleIcon,
+  GlobeAltIcon
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -25,6 +26,7 @@ interface NavItemProps {
   children: React.ReactNode;
   href?: string;
 }
+
 
 function NavItem({ children, href }: NavItemProps) {
   const isExternal =
@@ -60,6 +62,7 @@ const NAV_MENU = [
   { name: "Sesiones", icon: RocketLaunchIcon, href: "/sesiones" },
   { name: "Galería", icon: CameraIcon, href: "/galeria" },
   { name: "Nosotros", icon: UserIcon, href: "/nosotros" },
+  { name: "Wiki", icon: GlobeAltIcon, href: "https://semillerocv.alwaysdata.net/" },
   {
     name: "2024",
     icon: ArrowRightOnRectangleIcon,
@@ -239,20 +242,6 @@ export function Navbar() {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <a
-                  href="https://semillerocv.alwaysdata.net/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 w-full p-2 rounded 
-      text-white 
-      hover:bg-teal-400 hover:text-black 
-      transition-all duration-300 
-      transform hover:scale-105
-    "
-                >
-                  <i className="fa-brands fa-wikipedia-w text-xl text-white" />
-                  <span className="text-white">HoCV Wiki</span>
-                </a>
               </MenuItem>
             </MenuList>
           </Menu>

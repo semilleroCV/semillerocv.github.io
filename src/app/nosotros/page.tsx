@@ -9,8 +9,6 @@ import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { TeamCard } from "@/components/team-card";
 import Lenis from "lenis";
 
-
-
 export default function NosotrosPage() {
   const [isClient, setIsClient] = useState(false);
   
@@ -47,14 +45,14 @@ export default function NosotrosPage() {
             className="relative w-full h-full"
           >
             <Image
-              src="/image/team.jpeg"
+              src="/image/hocv_team.webp"
               alt="Team Cover"
               fill
               className="object-cover object-center"
               priority
               quality={100}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-black/100" />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/100" />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -69,7 +67,9 @@ export default function NosotrosPage() {
               onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
             >
-              Construyendo el Futuro de la Visión por Computadora
+              Construyendo el futuro de la 
+              <br></br>
+              Visión por Computadora
             </Typography>
           </motion.div>
         </div>
@@ -124,7 +124,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Hoover Rueda-Chacón"
                 role="Director del Semillero"
-                image="/image/people/hoover.png"
+                image="/image/people/hoover.webp"
                 socialLinks={{
                   web: "https://hfarueda.com/",
                   scholar: "https://scholar.google.es/citations?hl=es&user=seyRms4AAAAJ&view_op=list_works&sortby=pubdate"
@@ -154,7 +154,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Fabian Pérez"
                 role="Msc(s) Computer Science"
-                image="/image/people/fabian.jpeg"
+                image="/image/people/fabian.webp"
                 socialLinks={{
                   web: "https://www.factral.co/",
                   github: "https://github.com/Factral/",
@@ -164,7 +164,7 @@ export default function NosotrosPage() {
                         <TeamCard
                 name="Julian Leon"
                 role="Msc(s) Applied Mathematics"
-                image="/image/people/julian.png"
+                image="/image/people/julian.webp"
                 socialLinks={{
                   github: "https://github.com/Jleon13",
                   linkedin: "https://co.linkedin.com/in/juli%C3%A1n-david-le%C3%B3n-quintero-950413258",
@@ -193,7 +193,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Cristian Rey"
                 role="Estudiante de Ingeniería de Sistemas"
-                image="/image/people/cristian.jpeg"
+                image="/image/people/cristian.webp"
                 socialLinks={{
                   github: "https://github.com/CristianR8",
                   linkedin: "https://www.linkedin.com/in/cristian-rey-b33435229/",
@@ -202,7 +202,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Miguel Ángel"
                 role="Estudiante de Ingeniería de Sistemas"
-                image="/image/people/miguel.jpeg"
+                image="/image/people/miguel.webp"
                 socialLinks={{
                   github: "https://github.com/MiguelAngMolina",
                   linkedin: "https://www.linkedin.com/in/miguelangelmolinagarzon/",
@@ -220,7 +220,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Henry Mantilla"
                 role="Estudiante de Ingeniería de Sistemas"
-                image="/image/people/henry.jpeg"
+                image="/image/people/henry.webp"
                 socialLinks={{
                   github: "https://github.com/HenryMantilla",
                   linkedin: "https://www.linkedin.com/in/henry-dario-mantilla-claro-9186bb272/",
@@ -229,7 +229,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Paula Uzcategui"
                 role="Estudiante de Ingeniería Sistemas y Biologia"
-                image="/image/people/paula.jpeg"
+                image="/image/people/paula.webp"
                 socialLinks={{
                   github: "hhttps://github.com/pauzca"
                 }}
@@ -237,7 +237,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Guillermo Pinto"
                 role="Estudiante de Ingeniería de Sistemas"
-                image="/image/people/guillermo.jpeg"
+                image="/image/people/guillermo.webp"
                 socialLinks={{
                   github: "https://github.com/guillepinto",
                   linkedin: "https://www.linkedin.com/in/guillepinto",
@@ -246,7 +246,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Sebastian Solano"
                 role="Estudiante de Ingeniería Electronica"
-                image="/image/people/sebas.jpg"
+                image="/image/people/sebas.webp"
                 socialLinks={{
                   github: "https://github.com/stian1909"
                 }}
@@ -254,7 +254,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Brayan Quintero"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/brayan.jpeg"
+                image="/image/people/brayan.webp"
                 socialLinks={{
                   github: "https://github.com/BrayanQuintero123",
                   linkedin: "https://www.linkedin.com/in/brayan-quintero-7426a2205/",
@@ -263,7 +263,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Andrea Parra"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/andrea.jpeg"
+                image="/image/people/andrea.webp"
                 socialLinks={{
                   github: "https://github.com/andpgate"
                 }}
@@ -271,7 +271,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Dana Villamizar"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/dana.jpeg"
+                image="/image/people/dana.webp"
                 socialLinks={{
                   github: "https://github.com/Danita21"
                 }}
@@ -279,7 +279,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Jorge Garcia"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/jorge.jpeg"
+                image="/image/people/jorge.webp"
                 socialLinks={{
                   github: "https://github.com/jorge1b3"
                 }}
@@ -287,7 +287,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Juan Toloza"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/toloza.png"
+                image="/image/people/toloza.webp"
                 socialLinks={{
                   github: "https://github.com/tolozapd"
                 }}
@@ -295,7 +295,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Sneider Sánchez"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/sneider.jpeg"
+                image="/image/people/sneider.webp"
                 socialLinks={{
                   github: "https://github.com/semilleroCV"
                 }}
@@ -303,7 +303,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Juan Calderon"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/juancalderon.jpeg"
+                image="/image/people/juancalderon.webp"
                 socialLinks={{
                   github: "https://github.com/JJCG25"
                 }}
@@ -311,7 +311,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="Valentina Pérez" 
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/valentina.jpeg"
+                image="/image/people/valentina.webp"
                 socialLinks={{
                   github: "https://github.com/valperz"
                 }}
@@ -327,7 +327,7 @@ export default function NosotrosPage() {
               <TeamCard
                 name="César Vanegas"
                 role="Estudiante de Ingeniería Sistemas"
-                image="/image/people/cesar.jpeg"
+                image="/image/people/cesar.webp"
                 socialLinks={{
                   github: "https://github.com/CesarVanegas04"
                 }}
