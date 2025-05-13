@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { FaGoogleScholar } from "react-icons/fa6";
 import { TfiWorld } from "react-icons/tfi";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 interface SocialLinks {
   github?: string;
@@ -61,16 +62,16 @@ export function TeamCard({
   image,
   socialLinks,
 }: TeamCardProps) {
+  const isMobile = useIsMobile();
   return (
     <motion.div
       initial="rest"
-      whileHover="hover"
-      whileTap="hover"
+      {...(!isMobile && {whileHover: "hover", whileTap: "hover"})}
+      {...(isMobile && {whileInView: "hover", viewport: {once: false, amount: 0.5}})}
       animate="rest"
       variants={cardVariants}
-      className="relative w-80 h-96 rounded-xl overflow-hidden bg-black"
+      className="relative w-full sm:w-80 h-96 mx-auto rounded-xl overflow-hidden bg-black"
     >
-      {/* Background image */}
       <Image
         src={image}
         alt={name}
@@ -78,13 +79,11 @@ export function TeamCard({
         className="object-cover"
       />
 
-      {/* Animated gradient overlay */}
       <motion.div
         variants={overlayVariants}
         className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent"
       />
 
-      {/* Sliding content */}
       <motion.div
         variants={contentVariants}
         className="absolute bottom-16 left-4 right-4 text-white"
@@ -93,7 +92,6 @@ export function TeamCard({
         <p className="text-sm mt-1">{role}</p>
       </motion.div>
 
-      {/* Fade-in icons */}
       <motion.div
         variants={iconsVariants}
         className="absolute bottom-4 left-4 flex space-x-3 text-white"
