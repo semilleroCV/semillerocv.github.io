@@ -39,7 +39,7 @@ const RESEARCH_AREAS = [
 
 export function ResearchAreas() {
   return (
-    <section className="pb-8 px-8 lg:pb-48 bg-black">
+    <section className="pb-8 px-8 lg:pb-48 bg-gradient-to-b from-black to-teal-900">
       <div className="container mx-auto text-center">
         <Typography
                     placeholder=""

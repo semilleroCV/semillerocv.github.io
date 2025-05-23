@@ -11,6 +11,10 @@ const SponsoredBy = dynamic(() => import('./sponsored-by'), {
   loading: () => null
 });
 
+const Projects = dynamic(() => import('./projects-carrousel'), {
+  loading: () => null
+});
+
 const EventContent = dynamic(() => import('./event-content'), {
   loading: () => null
 });
@@ -26,6 +30,7 @@ export default function Portfolio() {
       <Hero />
       <div className="opacity-0 animate-fadeIn">
         <SponsoredBy />
+        <Projects/>
         <EventContent />
         <Faq />
       </div>
