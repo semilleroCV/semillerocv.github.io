@@ -71,7 +71,7 @@ export default function ProjectsCarousel() {
   const swiperRef = useRef<any>(null);
 
   return (
-    <section className="bg-gradient-to-b from-teal-900 to-black lg:pb-36">
+    <section className="bg-gradient-to-b from-teal-900 to-black lg:pb-40">
       <h2 className="text-4xl md:text-5xl text-center text-white font-extrabold mb-12">
         🏆 Proyectos de Grado 🏆
       </h2>
