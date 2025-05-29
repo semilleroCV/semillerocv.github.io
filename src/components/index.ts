@@ -9,3 +9,4 @@ export * from "./event-content-card";
 export * from "./fixed-plugin";
 export * from "./HeroAnimationEffects";
 export { default as DiscordBubble } from './DiscordBubble';
+export * from "./projects";
