@@ -26,6 +26,7 @@ interface CharacterCardProps {
 }
 
 
+
 const ParticlesBackground = memo(() => {
   const [init, setInit] = useState(false);
 
@@ -53,7 +54,7 @@ const ParticlesBackground = memo(() => {
           enable: true,
           color: "#2DD4BF",
           distance: 120,
-          opacity: 2,
+          opacity: 0.2,
           width: 1,
         },
         move: {
