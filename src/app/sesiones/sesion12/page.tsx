@@ -127,6 +127,7 @@ const CharacterCard = memo<CharacterCardProps>(
   ),
   (prev, next) => prev.isHovered === next.isHovered
 );
+CharacterCard.displayName = "CharacterCard";
 
 export default function FinalProjects() {
   const [hoveredIdx, setHoveredIdx] = useState<number>(0);
