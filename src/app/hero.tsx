@@ -234,8 +234,9 @@ export default function Hero() {
                   transition-transform 
                   duration-300
                 "
-              >
-                <Image
+              > 
+                
+                 <Image
                   src="/logos/image1.jpg"
                   alt="Image 1"
                   width={800}
@@ -245,7 +246,7 @@ export default function Hero() {
                   loading="lazy"
                 />
               </div>
-              <div
+             <div
                 className="
                   relative 
                   overflow-hidden 
@@ -255,7 +256,7 @@ export default function Hero() {
                   transition-transform 
                   duration-300
                 "
-              >
+              > 
                 <Image
                   src="/image/team.jpeg"
                   alt="Image 3"
@@ -268,7 +269,7 @@ export default function Hero() {
             </div>
     
             {/* Column 2 */}
-            <div
+           <div
               className="
                 relative 
                 overflow-hidden 
@@ -286,7 +287,7 @@ export default function Hero() {
                 height={1600}
                 className="w-full h-full object-cover rounded-lg"
               />
-                </div>
+                </div> 
           </div>
         </div>
       </div>

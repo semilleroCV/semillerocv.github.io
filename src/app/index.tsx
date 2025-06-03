@@ -1,5 +1,6 @@
 
 export * from "./hero";
+export * from "./luma-embed";
 export * from "./layout";
 export * from "./page";
 export * from "./event-content";

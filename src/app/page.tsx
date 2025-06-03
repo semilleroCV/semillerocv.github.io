@@ -6,7 +6,10 @@ import Hero from "./hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Dynamically import non-critical sections with fade-in effect instead of jarring skeletons
+const LumaEmbed = dynamic(() => import('./luma-embed'), {
+  loading: () => null
+});
+
 const SponsoredBy = dynamic(() => import('./sponsored-by'), {
   loading: () => null
 });
@@ -28,6 +31,7 @@ export default function Portfolio() {
     <main className={inter.className}>
       <Navbar />
       <Hero />
+      <LumaEmbed/>
       <div className="opacity-0 animate-fadeIn">
         <SponsoredBy />
         <Projects/>

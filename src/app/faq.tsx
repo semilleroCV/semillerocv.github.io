@@ -7,6 +7,7 @@ import { Typography } from "@material-tailwind/react";
 export function Faq() {
   return (
     <section className="relative flex items-center justify-center pt-4 pb-40 overflow-hidden">
+      
       {/* Background gradient */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-teal-900 to-black" />
 
@@ -15,7 +16,8 @@ export function Faq() {
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-green-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-[float_8s_ease-in-out_infinite_2s]" />
 
       {/* Glassmorphism Card */}
-      <div className="relative 
+      <div
+        className="relative 
           z-10 
           flex 
           flex-col 
@@ -33,11 +35,12 @@ export function Faq() {
           px-8 
           sm:px-12 
           md:px-16 
-          py-12">
+          py-12"
+      >
         {/* Person's Photo */}
         <div className="w-full md:w-1/3 mb-8 md:mb-0 relative overflow-hidden rounded-lg">
           <Image
-            src="/logos/author.png" 
+            src="/logos/author.png"
             alt="Person in charge"
             width={300}
             height={400}
@@ -79,10 +82,10 @@ export function Faq() {
             onPointerLeaveCapture={() => {}}
           >
             Ingeniero de Sistemas e Informática, con maestría y doctorado en
-            Ingeniería Eléctrica y Computación. Realizó su formación en Colombia y
-            EE. UU., siendo Asociado Postdoctoral en la Universidad de Boston. Sus
-            áreas de investigación incluyen procesamiento de imágenes, algoritmos,
-            óptica computacional y optimización numérica.
+            Ingeniería Eléctrica y Computación. Realizó su formación en Colombia
+            y EE. UU., siendo Asociado Postdoctoral en la Universidad de Boston.
+            Sus áreas de investigación incluyen procesamiento de imágenes,
+            algoritmos, óptica computacional y optimización numérica.
           </Typography>
         </div>
       </div>
