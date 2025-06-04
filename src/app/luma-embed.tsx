@@ -22,7 +22,6 @@ export default function LumaEmbed({
     </div>
   ),
 }: LumaEmbedProps) {
-  const [isLoading, setIsLoading] = useState(true);
 
   const embedUrl = `https://lu.ma/embed/event/${eventId}/simple`;
 
@@ -31,20 +30,16 @@ export default function LumaEmbed({
       className={`relative ${className}`}
       style={{ width, height, minHeight: typeof height === "number" ? height : undefined }}
     >
-      {isLoading && loadingFallback}
       <iframe
         src={embedUrl}
         width="100%"
         height="100%"
         frameBorder={0}
-        className={`transition-opacity border border-[#bfcbda88] rounded ${
-          isLoading ? "absolute opacity-0" : "relative opacity-100"
-        }`}
+        className="transition-opacity border border-[#bfcbda88] rounded relative" 
         allowFullScreen
         aria-hidden="false"
         tabIndex={0}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)}
+
       />
     </div>
   );
