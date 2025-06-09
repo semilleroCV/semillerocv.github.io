@@ -88,9 +88,12 @@ const ParticlesBackground = memo(() => {
 ParticlesBackground.displayName = "ParticlesBackground";
 
 export default function ProjectPage({ project }: ProjectPageProps) {
-  const photos = [project.photo1, project.photo2, project.photo3, project.photo4].filter(
-    (p): p is string => Boolean(p)
-  );
+  const photos = [
+    project.photo1,
+    project.photo2,
+    project.photo3,
+    project.photo4,
+  ].filter((p): p is string => Boolean(p));
   const isFour = photos.length === 4;
 
   const containerVariants = {
@@ -113,20 +116,19 @@ export default function ProjectPage({ project }: ProjectPageProps) {
       <Navbar />
 
       <motion.div
-          initial={{ x: -50, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2 }}
+        initial={{ x: -50, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.2 }}
+      >
+        <Link
+          href="/sesiones/sesion12"
+          className="mt-24 ml-8 hidden sm:inline-flex items-center text-white text-sm sm:text-base px-4 py-4 rounded-xl bg-teal-500 hover:bg-teal-600 transition-transform hover:scale-105 shadow-md"
         >
-          <Link
-            href="/sesiones/sesion12"
-            className="mt-24 ml-8 hidden sm:inline-flex items-center text-white text-sm sm:text-base px-4 py-4 rounded-xl bg-teal-500 hover:bg-teal-600 transition-transform hover:scale-105 shadow-md"
-          >
-            ← Volver a Sesión 12
-          </Link>
-        </motion.div>
+          ← Volver a Sesión 12
+        </Link>
+      </motion.div>
 
       <main className="relative p-4 sm:p-6 md:p-12 max-w-8xl mx-auto grid grid-rows-[auto_auto_1fr] gap-8 sm:gap-10 md:gap-12">
-
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -155,7 +157,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         >
           <motion.div
             variants={itemVariants}
-            className="flex flex-col space-y-4 sm:space-y-6"
+            className="flex flex-col space-y-2 sm:space-y-4 xl:mr-36"
           >
             {project.repoUrl && (
               <motion.a
@@ -163,10 +165,12 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center justify-center py-2 sm:py-4 px-4 sm:px-6 bg-gray-800 bg-opacity-60 rounded-2xl shadow-lg hover:shadow-teal-400/40 transition"
+                className="flex items-center justify-center py-2 sm:py-4 px-3 sm:px-4 bg-gray-800 bg-opacity-60 rounded-2xl shadow-lg hover:shadow-teal-400/40 transition"
               >
                 <FaGithub className="mr-3 text-xl text-teal-300" />
-                <span className="text-sm sm:text-lg font-semibold text-teal-200">Ver Código</span>
+                <span className="text-sm sm:text-lg font-semibold text-teal-200">
+                  Ver Código
+                </span>
               </motion.a>
             )}
             {project.slidesUrl && (
@@ -175,10 +179,12 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center justify-center py-2 sm:py-4 px-4 sm:px-6 bg-teal-600 rounded-2xl shadow-lg hover:shadow-teal-400/40 transition"
+                className="flex items-center justify-center py-2 sm:py-4 px-3 sm:px-4 bg-teal-600 rounded-2xl shadow-lg hover:shadow-teal-400/40 transition"
               >
                 <FaFilePowerpoint className="mr-3 text-xl text-white" />
-                <span className="text-sm sm:text-lg font-semibold text-white">Ver Slides</span>
+                <span className="text-sm sm:text-lg font-semibold text-white">
+                  Ver Slides
+                </span>
               </motion.a>
             )}
           </motion.div>
@@ -188,7 +194,13 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             whileHover={{ scale: 1.03, rotate: 1 }}
             className="relative h-64 sm:h-80 md:h-96 w-full rounded-3xl overflow-hidden shadow-2xl"
           >
-            <Image src={project.image} alt={project.title} fill className="object-cover" priority />
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover"
+              priority
+            />
           </motion.div>
 
           <motion.div
@@ -200,13 +212,24 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             }`}
           >
             {photos.map((src, i) => (
-              <motion.div key={i} whileHover={{ scale: 1.15, rotate: [0, 5, -5, 0] }} className="flex flex-col items-center relative z-10 transform transition-shadow shadow-lg">
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.15, rotate: [0, 5, -5, 0] }}
+                className="flex flex-col items-center relative z-10 transform transition-shadow shadow-lg"
+              >
                 <div className="bg-gradient-to-tr from-teal-300 to-black rounded-full p-1">
                   <div className="relative lg:w-28 lg:h-28 sm:w-24 sm:h-24 rounded-full overflow-hidden">
-                    <Image src={src} alt={`Miembro ${i + 1}`} fill className="object-cover"/>
+                    <Image
+                      src={src}
+                      alt={`Miembro ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                 </div>
-                <p className="mt-6 sm:mt-8 text-lg sm:text-lg font-medium text-gray-200 text-center">{project.members[i]}</p>
+                <p className="mt-6 sm:mt-8 text-lg sm:text-lg font-medium text-gray-200 text-center">
+                  {project.members[i]}
+                </p>
               </motion.div>
             ))}
           </motion.div>
