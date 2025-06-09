@@ -115,7 +115,7 @@ export const projects: Project[] = [
   {
     id: "equipo7",
     title: "Equipo 7",
-    members: ["Jefferson Acevedo", "Oscar Ortega", "Samuel Traslaviña"],
+    members: ["Jeferson Acevedo", "Oscar Ortega", "Samuel Traslaviña"],
     abstract:
       "El proyecto propone desarrollar un modelo de deblurring (restauración de imágenes desenfocadas) que utilice mapas de profundidad como guía estructural y priorización de regiones, mejorando los métodos actuales basados únicamente en imágenes RGB. La investigación incluye el estudio del desenfoque por profundidad (DoF), la creación de un dataset sintético con imágenes RGB, mapas de profundidad y versiones borrosas, y el diseño de una arquitectura de red neuronal que integre esta información geométrica para recuperar detalles con mayor precisión en áreas críticas, seguido de su entrenamiento y evaluación.",
     description: "/image/final-projects/names/16.png",

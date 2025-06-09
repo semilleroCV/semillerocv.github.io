@@ -135,7 +135,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
         >
           <motion.div
             variants={itemVariants}
-            className="relative h-40 sm:h-48 md:h-56 w-full max-w-xl rounded-3xl overflow-hidden shadow-2xl lg:-mt-24 sm:-mt-0 md:-mt-0"
+            className="relative h-40 sm:h-48 md:h-56 w-full max-w-4xl rounded-3xl overflow-hidden shadow-2xl lg:-mt-24 sm:mt-0 md:-mt-0"
           >
             <Image
               src={project.description}
@@ -202,21 +202,21 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             {photos.map((src, i) => (
               <motion.div key={i} whileHover={{ scale: 1.15, rotate: [0, 5, -5, 0] }} className="flex flex-col items-center relative z-10 transform transition-shadow shadow-lg">
                 <div className="bg-gradient-to-tr from-teal-300 to-black rounded-full p-1">
-                  <div className="relative w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden">
-                    <Image src={src} alt={`Miembro ${i + 1}`} fill className="object-cover" />
+                  <div className="relative lg:w-28 lg:h-28 sm:w-24 sm:h-24 rounded-full overflow-hidden">
+                    <Image src={src} alt={`Miembro ${i + 1}`} fill className="object-cover"/>
                   </div>
                 </div>
-                <p className="mt-6 sm:mt-8 text-xs sm:text-sm font-medium text-gray-200 text-center">{project.members[i]}</p>
+                <p className="mt-6 sm:mt-8 text-lg sm:text-lg font-medium text-gray-200 text-center">{project.members[i]}</p>
               </motion.div>
             ))}
           </motion.div>
 
           <motion.section
             variants={itemVariants}
-            className="md:col-span-2 lg:col-span-3 bg-black bg-opacity-50 p-6 sm:p-8 rounded-3xl backdrop-blur-md shadow-inner space-y-4"
+            className="md:col-span-2 lg:col-span-3 bg-gray-800 bg-opacity-50 p-6 sm:p-8 rounded-3xl backdrop-blur-md shadow-inner space-y-4"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-400 flex items-center justify-center">
-              <FaUsers className="mr-2 animate-pulse" /> Reseña
+              <FaUsers className="mr-2 animate-pulse" /> Resumen
             </h2>
             <p className="text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl text-justify">
               {project.abstract}
