@@ -19,7 +19,7 @@ const nextConfig = {
   compress: true,
   reactStrictMode: true,
   productionBrowserSourceMaps: false,
-  swcMinify: true,
+  //swcMinify: true,
 
   // Nota: hemos eliminado `output: 'export'` para poder usar i18n
 };

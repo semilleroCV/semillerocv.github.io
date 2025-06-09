@@ -1,5 +1,4 @@
-// src/app/projects/[id]/page.tsx
-import React from "react";
+// src/app/proyectos/[id]/page.tsx
 import { notFound } from "next/navigation";
 import ProjectPage from "@/components/project-page";
 import { projects } from "@/components/projects";
