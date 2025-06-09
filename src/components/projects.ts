@@ -27,7 +27,7 @@ export const projects: Project[] = [
     photo2:
       "/image/final-projects/people/project1/Mateo Andrés Delgado Fonseca.jpg",
     photo3: "/image/final-projects/people/project1/Nicolás Rivera Leon.jpg",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGphIv-K18/rLI5K8mJxUyjW2tiSnwLZw/edit",
     repoUrl: "/",
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "/image/final-projects/people/project2/Miguel Angel Ayala Fuentes.jpg",
     photo4:
       "/image/final-projects/people/project2/Roger Sergio Hernández Sierra.jpg",
-    slidesUrl: "https://link-a-slides.com/equipo2",
+    slidesUrl: "https://www.canva.com/design/DAGp0hCPVt8/lS-qpVHyrtNrH6839mm0-A/edit",
     repoUrl: "https://github.com/tu-org/equipo2",
   },
   {
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     photo2: "/image/final-projects/people/project3/Juan José Ardila Aragón.jpg",
     photo3:
       "/image/final-projects/people/project3/María Lucia Rodríguez Olarte.png",
-    slidesUrl: "/",
+    slidesUrl: "/image/final-projects/slides/Proyecto_3.pdf",
     repoUrl: "/",
   },
   {
@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "/image/final-projects/people/project4/Marian Stefanie Becerra Becerra.jpg",
     photo3:
       "/image/final-projects/people/project4/Otniel Jahir Marquina Mogollón.jpg",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGpoaVnvKs/-NSUd__ta44ZcJ7WEHQXKw/view?utm_content=DAGpoaVnvKs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h3b852bbc90",
     repoUrl: "/",
   },
   {
@@ -96,7 +96,7 @@ export const projects: Project[] = [
       "/image/final-projects/people/project5/David Steven Anaya González.png",
     photo2: "/image/final-projects/people/project5/Juan David Vanegas.jpg",
     photo3: "/image/final-projects/people/project5/Oscar Carreño Serpa.jpg",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGpoUL_9Ts/dWpwfxmF1HpRARy0TsQsjw/view?utlId=h7abfbd8a12",
     repoUrl: "/",
   },
   {
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     image: "/image/finals/team6.png",
     photo1: "/image/final-projects/people/project6/Diego Rodriguez.jpeg",
     photo2: "/image/final-projects/people/project6/Jeison Guarguati.jpg",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGpryJJC88/Io8eaNXfWvCq49_xhsLXLg/view?utm_content=DAGpryJJC88&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf0b1786b79",
     repoUrl: "/",
   },
   {
@@ -126,13 +126,13 @@ export const projects: Project[] = [
       "/image/final-projects/people/project7/Oscar Miguel Ortega Lozano.jpg",
     photo3:
       "/image/final-projects/people/project7/Samuel David Traslaviña Mateus.jpg",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGpf_4pmaQ/zu2mik-nduItsY2WniQuEw/view?utm_content=DAGpf_4pmaQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h768f4b5cd3",
     repoUrl: "/",
   },
   {
     id: "equipo8",
     title: "Equipo 8",
-    members: ["Juan Arias Sarabia", "Samuel Benilla", "Willianngel Ollevedo"],
+    members: ["Juan Arias Sarabia", "Samuel Benilla", "Williangel Ollevedo"],
     abstract:
       "Este proyecto tiene como objetivo el análisis, georreferenciación y visualización de nubes de puntos obtenidas mediante tecnología LiDAR (Light Detection and Ranging). A través del procesamiento de datos espaciales tridimensionales, se busca extraer información relevante del entorno físico, facilitando la interpretación estructural y geoespacial del terreno. El flujo de trabajo incluye la lectura y limpieza de datos en formato .bag, la corrección y transformación de coordenadas para una adecuada georreferenciación, y la visualización interactiva de la nube de puntos. Este proyecto es aplicable a múltiples áreas, como cartografía, ingeniería civil, arqueología, medio ambiente y planificación urbana.",
     description: "/image/final-projects/names/14.png",
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       "/image/final-projects/people/project8/Samuel David Penilla Ramirez.webp",
     photo3:
       "/image/final-projects/people/project8/Williangel Armando Quevedo Villamizar.webp",
-    slidesUrl: "/",
+    slidesUrl: "https://www.canva.com/design/DAGprxUO8mI/7tU1TVXnUuEWwE7lNmDPfg/view?utm_content=DAGprxUO8mI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he6441b761c",
     repoUrl: "/",
   },
   {
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     photo2: "/image/final-projects/people/project9/Juan Jaimes.webp",
     photo3:
       "/image/final-projects/people/project9/Santiago Camargo Ardila.webp",
-    slidesUrl: "/",
+    slidesUrl: "https://prezi.com/view/XYWcNpWh2U8ihpf80DiR/",
     repoUrl: "/",
   },
 ];
