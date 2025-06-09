@@ -18,7 +18,8 @@ import {
   CameraIcon,
   UserIcon,
   ArrowRightOnRectangleIcon,
-  GlobeAltIcon
+  GlobeAltIcon,
+  TrophyIcon
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -62,7 +63,7 @@ const NAV_MENU = [
   { name: "Sesiones", icon: RocketLaunchIcon, href: "/sesiones" },
   { name: "Galería", icon: CameraIcon, href: "/galeria" },
   { name: "Nosotros", icon: UserIcon, href: "/nosotros" },
-  { name: "Wiki", icon: GlobeAltIcon, href: "https://semillerocv.alwaysdata.net/" },
+  { name: "Proyectos Finales", icon: TrophyIcon, href: "https://semillerocv.github.io/sesiones/sesion12" },
   {
     name: "2024",
     icon: ArrowRightOnRectangleIcon,
