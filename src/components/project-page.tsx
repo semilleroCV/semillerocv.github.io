@@ -159,7 +159,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             variants={itemVariants}
             className="flex flex-col space-y-2 sm:space-y-4 xl:mr-36"
           >
-            {project.repoUrl && (
+            {/* {project.repoUrl && (
               <motion.a
                 href={project.repoUrl}
                 target="_blank"
@@ -172,7 +172,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   Ver Código
                 </span>
               </motion.a>
-            )}
+            )} */}
             {project.slidesUrl && (
               <motion.a
                 href={project.slidesUrl}
