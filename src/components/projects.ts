@@ -27,7 +27,7 @@ export const projects: Project[] = [
     photo2:
       "/image/final-projects/people/project1/Mateo Andrés Delgado Fonseca.jpg",
     photo3: "/image/final-projects/people/project1/Nicolás Rivera Leon.jpg",
-    slidesUrl: "https://www.canva.com/design/DAGphIv-K18/rLI5K8mJxUyjW2tiSnwLZw/edit",
+    slidesUrl: "https://www.canva.com/design/DAGphIv-K18/lAg5nCA3sduwpfN-f8YiEg/view?utm_content=DAGphIv-K18&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb9bd890a87",
     repoUrl: "/",
   },
   {
@@ -50,7 +50,7 @@ export const projects: Project[] = [
       "/image/final-projects/people/project2/Miguel Angel Ayala Fuentes.jpg",
     photo4:
       "/image/final-projects/people/project2/Roger Sergio Hernández Sierra.jpg",
-    slidesUrl: "https://www.canva.com/design/DAGp0hCPVt8/lS-qpVHyrtNrH6839mm0-A/edit",
+    slidesUrl: "https://www.canva.com/design/DAGp0hCPVt8/E3s8s7GXF7iRjU7IDQ-YDQ/view?utm_content=DAGp0hCPVt8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h25cf44d3f9",
     repoUrl: "https://github.com/tu-org/equipo2",
   },
   {
