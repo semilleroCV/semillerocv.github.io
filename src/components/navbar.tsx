@@ -237,6 +237,28 @@ export function Navbar() {
                   <span className="text-white">GitHub</span>
                 </a>
               </MenuItem>
+              <MenuItem
+                className="p-0 hover:bg-transparent"
+                placeholder=""
+                onPointerEnterCapture={() => {}}
+                onPointerLeaveCapture={() => {}}
+              >
+                <a
+                  href="https://semillerocv.alwaysdata.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+     flex items-center gap-2 w-full p-2 rounded 
+     text-white 
+     hover:bg-teal-400 hover:text-black 
+     transition-all duration-300 
+     transform hover:scale-105
+   "
+                >
+                  <i className="fa fa-globe text-xl text-white" />
+                  <span className="text-white">HoCV Wiki</span>
+                </a>
+              </MenuItem>
             </MenuList>
           </Menu>
         </div>
