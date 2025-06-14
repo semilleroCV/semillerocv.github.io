@@ -3,12 +3,10 @@ import { notFound } from "next/navigation";
 import ProjectPage from "@/components/project-page";
 import { projects } from "@/components/projects";
 
-// ① Le dices a Next qué ids pre-renderizar
 export async function generateStaticParams() {
   return projects.map((p) => ({ id: p.id }));
 }
 
-// ② Idéntica firma asíncrona con params: Promise<{id:string}>
 export default async function ProjectRoute({
   params,
 }: {

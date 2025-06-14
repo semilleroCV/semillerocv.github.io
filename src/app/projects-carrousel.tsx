@@ -64,7 +64,7 @@ const projectsData: Project[] = [
     slidesUrl: "../projects-BSc/henry_miguel.pdf",
     repoUrl: "https://github.com/HenryMantilla/Stereo-Lidar-Fusion",
   },
-  // ...more projects
+  // ...mas proyectos
 ];
 
 export default function ProjectsCarousel() {

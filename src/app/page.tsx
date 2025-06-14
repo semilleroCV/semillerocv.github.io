@@ -31,7 +31,6 @@ export default function Portfolio() {
     <main className={inter.className}>
       <Navbar />
       <Hero />
-      <LumaEmbed/>
       <div className="opacity-0 animate-fadeIn">
         <SponsoredBy />
         <Projects/>

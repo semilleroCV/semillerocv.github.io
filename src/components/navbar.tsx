@@ -63,7 +63,7 @@ const NAV_MENU = [
   { name: "Sesiones", icon: RocketLaunchIcon, href: "/sesiones" },
   { name: "Galería", icon: CameraIcon, href: "/galeria" },
   { name: "Nosotros", icon: UserIcon, href: "/nosotros" },
-  { name: "Proyectos Finales", icon: TrophyIcon, href: "https://semillerocv.github.io/sesiones/sesion12" },
+  { name: "Proyectos", icon: TrophyIcon, href: "/sesiones/sesion12" },
   {
     name: "2024",
     icon: ArrowRightOnRectangleIcon,

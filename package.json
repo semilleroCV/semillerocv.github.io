@@ -21,6 +21,7 @@
     "@studio-freight/lenis": "^1.0.42",
     "@tsparticles/react": "^3.0.0",
     "animejs": "^4.0.2",
+    "canvas-confetti": "^1.9.3",
     "drei": "^2.2.21",
     "framer-motion": "^12.4.3",
     "gsap": "^3.12.7",

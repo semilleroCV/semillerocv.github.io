@@ -9,6 +9,7 @@ import { Navbar } from "@/components";
 import { Project as ProjectData } from "@/components/projects";
 import { Container, Engine, InteractivityDetect } from "@tsparticles/engine";
 import { FaGithub, FaFilePowerpoint, FaUsers } from "react-icons/fa";
+import confetti from 'canvas-confetti';
 
 interface ProjectPageProps {
   project: ProjectData;
@@ -95,6 +96,20 @@ export default function ProjectPage({ project }: ProjectPageProps) {
     project.photo4,
   ].filter((p): p is string => Boolean(p));
   const isFour = photos.length === 4;
+  useEffect(() => {
+    if (project.id === "equipo3" || project.id === "equipo4" || project.id === "equipo9") {
+      const timer = setTimeout(() => {
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#2DD4BF', '#34D399', '#10B981', '#059669']
+        });
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [project.id]);
 
   const containerVariants = {
     hidden: {},
@@ -159,7 +174,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             variants={itemVariants}
             className="flex flex-col space-y-2 sm:space-y-4 xl:mr-36"
           >
-            {/* {project.repoUrl && (
+            {project.repoUrl && (
               <motion.a
                 href={project.repoUrl}
                 target="_blank"
@@ -172,7 +187,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
                   Ver Código
                 </span>
               </motion.a>
-            )} */}
+            )}
             {project.slidesUrl && (
               <motion.a
                 href={project.slidesUrl}
@@ -201,6 +216,19 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               className="object-cover"
               priority
             />
+            {(project.id === "equipo3" ||
+              project.id === "equipo4" ||
+              project.id === "equipo9") && (
+              <div className="absolute bottom-2 right-2 z-10 w-1/3 sm:w-1/4 md:w-1/5 h-auto">
+                <Image
+                  src={project.winnerImage!}
+                  alt="Detalle adicional"
+                  width={100}
+                  height={100}
+                  className="object-contain w-full h-auto"
+                />
+              </div>
+            )}
           </motion.div>
 
           <motion.div
