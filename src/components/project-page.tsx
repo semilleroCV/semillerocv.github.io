@@ -10,6 +10,7 @@ import { Project as ProjectData } from "@/components/projects";
 import { Container, Engine, InteractivityDetect } from "@tsparticles/engine";
 import { FaGithub, FaFilePowerpoint, FaUsers } from "react-icons/fa";
 import confetti from 'canvas-confetti';
+import { useTranslations } from "next-intl";
 
 interface ProjectPageProps {
   project: ProjectData;
@@ -88,7 +89,10 @@ const ParticlesBackground = memo(() => {
 });
 ParticlesBackground.displayName = "ParticlesBackground";
 
+
 export default function ProjectPage({ project }: ProjectPageProps) {
+  const t = useTranslations("ProjectPage");
+  const p = useTranslations("Proyects");
   const photos = [
     project.photo1,
     project.photo2,
@@ -139,7 +143,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           href="/sesiones/sesion12"
           className="mt-24 ml-8 hidden sm:inline-flex items-center text-white text-sm sm:text-base px-4 py-4 rounded-xl bg-teal-500 hover:bg-teal-600 transition-transform hover:scale-105 shadow-md"
         >
-          ← Volver a Sesión 12
+          {t("back_to_session_12")}
         </Link>
       </motion.div>
 
@@ -156,7 +160,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           >
             <Image
               src={project.description}
-              alt={`${project.title} descripción`}
+              alt={`${p(`${project.id}_title`)} descripción`}
               fill
               className="object-contain"
               priority
@@ -184,7 +188,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               >
                 <FaGithub className="mr-3 text-xl text-teal-300" />
                 <span className="text-sm sm:text-lg font-semibold text-teal-200">
-                  Ver Código
+                  {t("view_code")}
                 </span>
               </motion.a>
             )}
@@ -198,7 +202,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
               >
                 <FaFilePowerpoint className="mr-3 text-xl text-white" />
                 <span className="text-sm sm:text-lg font-semibold text-white">
-                  Ver Slides
+                  {t("view_slides")}
                 </span>
               </motion.a>
             )}
@@ -211,7 +215,7 @@ export default function ProjectPage({ project }: ProjectPageProps) {
           >
             <Image
               src={project.image}
-              alt={project.title}
+              alt={p(`${project.id}_title`)}
               fill
               className="object-cover"
               priority
@@ -267,10 +271,10 @@ export default function ProjectPage({ project }: ProjectPageProps) {
             className="md:col-span-2 lg:col-span-3 bg-gray-800 bg-opacity-50 p-6 sm:p-8 rounded-3xl backdrop-blur-md shadow-inner space-y-4"
           >
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-400 flex items-center justify-center">
-              <FaUsers className="mr-2 animate-pulse" /> Resumen
+              <FaUsers className="mr-2 animate-pulse" /> {t("summary")}
             </h2>
             <p className="text-gray-200 leading-relaxed text-base sm:text-lg md:text-xl text-justify">
-              {project.abstract}
+              {p(`${project.id}_abstract`)}
             </p>
           </motion.section>
         </motion.div>
@@ -279,21 +283,5 @@ export default function ProjectPage({ project }: ProjectPageProps) {
   );
 }
 
-export interface Project {
-  id: string;
-  title: string;
-  members: string[];
-  abstract: string;
-  description: string;
-  image: string;
-  photo1: string;
-  photo2: string;
-  photo3?: string;
-  photo4?: string;
-  slidesUrl?: string;
-  repoUrl?: string;
-}
 
-export const projects: Project[] = [
-  /* ...sin cambios en los datos del array */
-];
+

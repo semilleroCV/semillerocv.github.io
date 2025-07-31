@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@material-tailwind/react";
+import { useTranslations } from "next-intl";
 
 export function FixedPlugin() {
+  const t = useTranslations("FixedPlugin");
   return (
     <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
       <Button
@@ -20,7 +22,7 @@ export function FixedPlugin() {
           alt="Discord"
           src="/logos/discord-logo.svg" 
         />{" "}
-        Únete a Discord
+        {t("join_discord")}
       </Button>
     </a>
   );

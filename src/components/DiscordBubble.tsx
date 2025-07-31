@@ -3,8 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaDiscord } from 'react-icons/fa';
+import { useTranslations } from 'next-intl';
 
 const DiscordBubble = () => {
+  const t = useTranslations('DiscordBubble');
   const [isHovered, setIsHovered] = useState(false);
   const [showPulse, setShowPulse] = useState(true);
 
@@ -40,7 +42,7 @@ const DiscordBubble = () => {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
           >
             <div className="relative">
-              ¡Únete a nuestra comunidad!
+              {t('join')}
               <div className="absolute -bottom-2 right-4 w-3 h-3 bg-gradient-to-r from-indigo-600 to-purple-600 transform rotate-45" />
             </div>
           </motion.div>

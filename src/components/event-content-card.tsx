@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 interface EventContentCardProps {
   title: string;
@@ -16,6 +17,7 @@ export default function EventContentCard({
   sessionId,
 }: EventContentCardProps) {
   const router = useRouter();
+  const t = useTranslations("EventContentCard");
 
   const handleExploreSession = () => {
     router.push(`/sesiones/sesion${sessionId}`);
@@ -58,7 +60,7 @@ export default function EventContentCard({
                 transition-all 
                 duration-300"
           >
-            Explorar Sesión
+            {t("explore_session")}
           </button>
       </div>
     </motion.div>

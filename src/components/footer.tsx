@@ -1,9 +1,11 @@
 import { Typography, Button, IconButton } from "@material-tailwind/react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
+  const t = useTranslations("Footer");
   return (
     <footer className="pb-5 p-10 md:pt-10 bg-black">
       <div className="container flex flex-col mx-auto">
@@ -16,7 +18,7 @@ export function Footer() {
             className="text-2xl md:text-3xl text-center font-bold"
             color="white"
           >
-            Únete y potencia tus conocimientos en Visión por Computadora
+            {t("cta")}
           </Typography>
           <div className="flex w-full md:w-fit gap-3 mt-2 flex-col md:flex-row">
               <p
@@ -32,7 +34,7 @@ export function Footer() {
               shadow-lg
               text-white"
               >
-                La fecha de inscripción ha finalizado
+                {t("registration_closed")}
               </p>
           </div>
         </div>
@@ -156,7 +158,7 @@ export function Footer() {
           color="white"
           className="text-center mt-12 font-normal !text-gray-50"
         >
-          &copy; {CURRENT_YEAR} Made by <a>Students ❤️</a>
+          &copy; {CURRENT_YEAR} {t("made_by")} <a>Students ❤️</a>
         </Typography>
       </div>
     </footer>

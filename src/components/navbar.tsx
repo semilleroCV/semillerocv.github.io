@@ -21,6 +21,7 @@ import {
   GlobeAltIcon,
   TrophyIcon
 } from "@heroicons/react/24/solid";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 interface NavItemProps {
@@ -58,12 +59,12 @@ function NavItem({ children, href }: NavItemProps) {
   );
 }
 
-const NAV_MENU = [
-  { name: "Inicio", icon: HomeIcon, href: "/" },
-  { name: "Sesiones", icon: RocketLaunchIcon, href: "/sesiones" },
-  { name: "Galería", icon: CameraIcon, href: "/galeria" },
-  { name: "Nosotros", icon: UserIcon, href: "/nosotros" },
-  { name: "Proyectos", icon: TrophyIcon, href: "/sesiones/sesion12" },
+const NAV_MENU = (t: any) => [
+  { name: t("home"), icon: HomeIcon, href: "/" },
+  { name: t("sessions"), icon: RocketLaunchIcon, href: "/sesiones" },
+  { name: t("gallery"), icon: CameraIcon, href: "/galeria" },
+  { name: t("about_us"), icon: UserIcon, href: "/nosotros" },
+  { name: t("projects"), icon: TrophyIcon, href: "/sesiones/sesion12" },
   {
     name: "2024",
     icon: ArrowRightOnRectangleIcon,
@@ -72,6 +73,7 @@ const NAV_MENU = [
 ];
 
 export function Navbar() {
+  const t = useTranslations("Navbar");
   const [open, setOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -84,6 +86,8 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navMenu = NAV_MENU(t);
 
   return (
     <MTNavbar
@@ -123,7 +127,7 @@ export function Navbar() {
         {/* Desktop Menu Social Icons */}
         <div className="hidden lg:flex items-center gap-6">
           <ul className="flex items-center gap-8">
-            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+            {navMenu.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5 text-white" />
                 <span>{name}</span>
@@ -168,7 +172,7 @@ export function Navbar() {
    "
                 >
                   <i className="fa-brands fa-discord text-xl text-white" />
-                  <span className="text-white">Discord</span>
+                  <span className="text-white">{t("discord")}</span>
                 </a>
               </MenuItem>
               <MenuItem
@@ -190,7 +194,7 @@ export function Navbar() {
    "
                 >
                   <i className="fa-brands fa-youtube text-xl text-white" />
-                  <span className="text-white">YouTube</span>
+                  <span className="text-white">{t("youtube")}</span>
                 </a>
               </MenuItem>
               <MenuItem
@@ -212,7 +216,7 @@ export function Navbar() {
    "
                 >
                   <i className="fa-brands fa-instagram text-xl text-white" />
-                  <span className="text-white">Instagram</span>
+                  <span className="text-white">{t("instagram")}</span>
                 </a>
               </MenuItem>
               <MenuItem
@@ -234,7 +238,7 @@ export function Navbar() {
    "
                 >
                   <i className="fa-brands fa-github text-xl text-white" />
-                  <span className="text-white">GitHub</span>
+                  <span className="text-white">{t("github")}</span>
                 </a>
               </MenuItem>
               <MenuItem
@@ -256,7 +260,7 @@ export function Navbar() {
    "
                 >
                   <i className="fa fa-globe text-xl text-white" />
-                  <span className="text-white">HoCV Wiki</span>
+                  <span className="text-white">{t("wiki")}</span>
                 </a>
               </MenuItem>
             </MenuList>
@@ -289,7 +293,7 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="mt-4 bg-teal-900/95 backdrop-blur-xl p-6 rounded-xl border border-teal-800 shadow-2xl">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon, href }) => (
+            {navMenu.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>
                 <Icon className="h-5 w-5 text-teal-300" />
                 <span className="text-gray-100 font-medium">{name}</span>
@@ -301,7 +305,7 @@ export function Navbar() {
               href="https://discord.gg/MkCpdsHZzJ"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Únete a nuestro Discord"
+              aria-label={t("discord")}
             >
               <IconButton
                 size="sm"
@@ -318,7 +322,7 @@ export function Navbar() {
               href="https://www.youtube.com/@Hands-OnCV"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visita nuestro canal de YouTube"
+              aria-label={t("youtube")}
             >
               <IconButton
                 size="sm"
@@ -335,7 +339,7 @@ export function Navbar() {
               href="https://www.instagram.com/handsoncv/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Síguenos en Instagram"
+              aria-label={t("instagram")}
             >
               <IconButton
                 size="sm"
@@ -352,7 +356,7 @@ export function Navbar() {
               href="https://github.com/semilleroCV"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Visita nuestro repositorio en GitHub"
+              aria-label={t("github")}
             >
               <IconButton
                 size="md"

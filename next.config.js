@@ -1,4 +1,9 @@
 /** @type {import('next').NextConfig} */
+
+const createNextIntlPlugin = require('next-intl/plugin');
+
+const withNextIntl = createNextIntlPlugin();
+
 const nextConfig = {
   // 1) Optimización de imágenes
   images: {
@@ -21,8 +26,7 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   //swcMinify: true,
 
-  // Nota: hemos eliminado `output: 'export'` para poder usar i18n
-  output: 'export'
+
 };
 
-module.exports = nextConfig;
+module.exports = withNextIntl(nextConfig);

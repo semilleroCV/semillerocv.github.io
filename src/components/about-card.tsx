@@ -4,6 +4,7 @@ import {
   Typography,
   Button,
 } from "@material-tailwind/react";
+import { useTranslations } from "next-intl";
 
 interface AboutCardProp {
   title: string;
@@ -12,6 +13,7 @@ interface AboutCardProp {
 }
 
 export function AboutCard({ title, description, subTitle }: AboutCardProp) {
+  const t = useTranslations("AboutCard");
   return (
     <Card shadow={false} placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
       <CardBody placeholder="" onPointerEnterCapture={() => {}} onPointerLeaveCapture={() => {}}>
@@ -36,7 +38,7 @@ export function AboutCard({ title, description, subTitle }: AboutCardProp) {
           placeholder="" 
           onPointerEnterCapture={() => {}} 
           onPointerLeaveCapture={() => {}}>
-          view details
+          {t("view_details")}
         </Button>
       </CardBody>
     </Card>
