@@ -170,6 +170,15 @@ export default function NosotrosPage() {
                   linkedin: "https://co.linkedin.com/in/juli%C3%A1n-david-le%C3%B3n-quintero-950413258",
                 }}
               />
+                            <TeamCard
+                name="Henry Mantilla"
+                role="Msc(s) Computer Science"
+                image="/image/people/henry.webp"
+                socialLinks={{
+                  github: "https://github.com/HenryMantilla",
+                  linkedin: "https://www.linkedin.com/in/henry-dario-mantilla-claro-9186bb272/",
+                }}
+              />
               {/* Add more master students as needed */}
             </div>
           </motion.div>
@@ -217,15 +226,7 @@ export default function NosotrosPage() {
                   linkedin: "https://www.linkedin.com/in/ramiro-avila-chacon/",
                 }}
               />
-              <TeamCard
-                name="Henry Mantilla"
-                role="Estudiante de Ingeniería de Sistemas"
-                image="/image/people/henry.webp"
-                socialLinks={{
-                  github: "https://github.com/HenryMantilla",
-                  linkedin: "https://www.linkedin.com/in/henry-dario-mantilla-claro-9186bb272/",
-                }}
-              />
+
               <TeamCard
                 name="Paula Uzcategui"
                 role="Estudiante de Ingeniería Sistemas y Biologia"
